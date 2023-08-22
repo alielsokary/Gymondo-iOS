@@ -47,6 +47,23 @@ struct APIClient: HTTPClient {
     }
 }
 
+// MARK: - Error Handling
+
+enum NetworkRequestError: LocalizedError, Equatable {
+    case invalidRequest
+    case badRequest
+    case unauthorized
+    case forbidden
+    case notFound
+    case error4xx(_ code: Int)
+    case serverError
+    case error5xx(_ code: Int)
+    case decodingError( _ description: String)
+    case urlSessionFailed(_ error: URLError)
+    case timeOut
+    case unknownError
+}
+
 extension APIClient {
     /// Parses a HTTP StatusCode and returns a proper error
     /// - Parameter statusCode: HTTP status code
@@ -63,9 +80,7 @@ extension APIClient {
         default: return .unknownError
         }
     }
-}
 
-extension APIClient {
     /// Parses URLSession Publisher errors and return proper ones
     /// - Parameter error: URLSession publisher error
     /// - Returns: Readable NetworkRequestError
@@ -81,19 +96,4 @@ extension APIClient {
             return .unknownError
         }
     }
-}
-
-enum NetworkRequestError: LocalizedError, Equatable {
-    case invalidRequest
-    case badRequest
-    case unauthorized
-    case forbidden
-    case notFound
-    case error4xx(_ code: Int)
-    case serverError
-    case error5xx(_ code: Int)
-    case decodingError( _ description: String)
-    case urlSessionFailed(_ error: URLError)
-    case timeOut
-    case unknownError
 }
