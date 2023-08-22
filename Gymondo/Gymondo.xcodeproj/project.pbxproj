@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		41D899DF2A940A9200291E5F /* Gymondo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D899D62A940A9200291E5F /* Gymondo.framework */; };
-		41D899E42A940A9200291E5F /* GymondoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D899E32A940A9200291E5F /* GymondoTests.swift */; };
 		41D899E52A940A9200291E5F /* Gymondo.h in Headers */ = {isa = PBXBuildFile; fileRef = 41D899D92A940A9200291E5F /* Gymondo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		41D899EF2A940AF700291E5F /* Exercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D899EE2A940AF700291E5F /* Exercises.swift */; };
 /* End PBXBuildFile section */
@@ -27,7 +26,6 @@
 		41D899D62A940A9200291E5F /* Gymondo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gymondo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D899D92A940A9200291E5F /* Gymondo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Gymondo.h; sourceTree = "<group>"; };
 		41D899DE2A940A9200291E5F /* GymondoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GymondoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		41D899E32A940A9200291E5F /* GymondoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymondoTests.swift; sourceTree = "<group>"; };
 		41D899EE2A940AF700291E5F /* Exercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercises.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,7 +78,6 @@
 		41D899E22A940A9200291E5F /* GymondoTests */ = {
 			isa = PBXGroup;
 			children = (
-				41D899E32A940A9200291E5F /* GymondoTests.swift */,
 			);
 			path = GymondoTests;
 			sourceTree = "<group>";
@@ -115,6 +112,7 @@
 				41D899D22A940A9200291E5F /* Sources */,
 				41D899D32A940A9200291E5F /* Frameworks */,
 				41D899D42A940A9200291E5F /* Resources */,
+				41F45D462A94E1AA00EE6F4A /* Run SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -198,11 +196,34 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		41F45D462A94E1AA00EE6F4A /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint --fix && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		41D899D22A940A9200291E5F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41F45D442A94DEAC00EE6F4A /* APIConstants.swift in Sources */,
 				41D899EF2A940AF700291E5F /* Exercises.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,7 +232,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41D899E42A940A9200291E5F /* GymondoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
