@@ -23,6 +23,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		415447AE2A94EF0900472BF5 /* CI_macOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CI_macOS.xctestplan; sourceTree = "<group>"; };
 		41D899D62A940A9200291E5F /* Gymondo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gymondo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D899D92A940A9200291E5F /* Gymondo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Gymondo.h; sourceTree = "<group>"; };
 		41D899DE2A940A9200291E5F /* GymondoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GymondoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +52,7 @@
 		41D899CC2A940A9200291E5F = {
 			isa = PBXGroup;
 			children = (
+				415447AE2A94EF0900472BF5 /* CI_macOS.xctestplan */,
 				41D899D82A940A9200291E5F /* Gymondo */,
 				41D899E22A940A9200291E5F /* GymondoTests */,
 				41D899D72A940A9200291E5F /* Products */,
@@ -223,7 +225,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41F45D442A94DEAC00EE6F4A /* APIConstants.swift in Sources */,
 				41D899EF2A940AF700291E5F /* Exercises.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
