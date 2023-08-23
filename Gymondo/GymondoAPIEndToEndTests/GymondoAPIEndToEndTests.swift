@@ -25,7 +25,8 @@ final class GymondoAPIEndToEndTests: XCTestCase {
                 case let .failure(error):
                     XCTFail("Expected successful data result, got \(error) instead")
                 }
-        } receiveValue: { value in
+        } receiveValue: { [weak self] value in
+            guard let self = self else { return }
             value.results?.enumerated().forEach({ exerciseItem in
                 XCTAssertEqual(exerciseItem.element.id, self.id(at: exerciseItem.offset))
                 XCTAssertEqual(exerciseItem.element.name, self.name(at: exerciseItem.offset))
