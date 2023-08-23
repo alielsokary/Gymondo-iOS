@@ -64,7 +64,7 @@ class APIClientTests: XCTestCase {
         var receivedError: NetworkRequestError?
 
         // When
-        let cancellable = httpClientSpy.dispatch(request: request)
+        _ = httpClientSpy.dispatch(request: request)
             .sink(receiveCompletion: { completion in
                 if case let .failure(error) = completion {
                     receivedError = error
@@ -74,6 +74,32 @@ class APIClientTests: XCTestCase {
         // Then
         XCTAssertTrue(httpClientSpy.dispatchCalled)
         XCTAssertEqual(receivedError, .invalidRequest)
+    }
+
+    func test_dispatch_deliversErrorsOn200HTTPResponseWithInvalidJSON() {
+        // Given
+        let endpointRouter = MockEndpointRouter()
+        let request = endpointRouter.asURLRequest(baseURL: "https://example.com")!
+        let responseData = "invalidJSON".data(using: .utf8)!
+        httpClientSpy.responseStub = Just(responseData)
+            .setFailureType(to: NetworkRequestError.self)
+            .eraseToAnyPublisher()
+
+        var receivedError: NetworkRequestError?
+
+        // When
+        _ = httpClientSpy.dispatch(request: request)
+            .sink(receiveCompletion: { completion in
+                if case let .failure(error) = completion {
+                    receivedError = error
+                }
+            }, receiveValue: { (_: MockEndpointRouter.ReturnType) in })
+
+        let deccodingErrorMessage = "The data couldn’t be read because it isn’t in the correct format."
+
+        // Then
+        XCTAssertTrue(httpClientSpy.dispatchCalled)
+        XCTAssertEqual(receivedError, .decodingError(deccodingErrorMessage))
     }
 
     // MARK: - Helpers
