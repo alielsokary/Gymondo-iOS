@@ -13,27 +13,21 @@ struct Exercises: Codable {
 }
 
 // MARK: - ExerciseItem
-struct ExerciseItem: Codable {
+struct ExerciseItem: Codable, Equatable {
     let id: Int?
     let uuid, name: String?
     let exerciseBase: Int?
     let description: String?
-    let created: Date?
+    let created: String?
     let category: Int?
-    let muscles, musclesSecondary, equipment: [Int]?
-    let language, license: Int?
-    let licenseAuthor: String?
+    let language: Int?
     let variations: [Int]?
-    let authorHistory: [String]?
 
     enum CodingKeys: String, CodingKey {
         case id, uuid, name
         case exerciseBase = "exercise_base"
-        case description, created, category, muscles
-        case musclesSecondary = "muscles_secondary"
-        case equipment, language, license
-        case licenseAuthor = "license_author"
+        case description, created, category
+        case language
         case variations
-        case authorHistory = "author_history"
     }
 }
