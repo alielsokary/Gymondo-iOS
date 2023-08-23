@@ -12,15 +12,13 @@ import Combine
 class APIClientTests: XCTestCase {
 
     func test_init_doesNotRequestDataFromURLRequest() {
-        let sut = makeSUT()
+        let (sut, _) = makeSUT()
         XCTAssertFalse(sut.dispatchCalled)
     }
 
     func test_dispatch_requestsDataFromURLRequest() {
         // Given
-        let sut = makeSUT()
-        let endpointRouter = MockEndpointRouter()
-        let request = endpointRouter.asURLRequest(baseURL: "https://example.com")!
+        let (sut, request) = makeSUT()
 
         // When
         let cancellable = sut.dispatch(request: request)
@@ -30,19 +28,20 @@ class APIClientTests: XCTestCase {
         XCTAssertTrue(sut.dispatchCalled)
         XCTAssertEqual(sut.capturedRequests.count, 1)
         XCTAssertEqual(sut.capturedRequests[0], request)
+        XCTAssertNotNil(cancellable)
     }
 
     func test_dispatchTwice_requestsDataFromURLRequestTwice() {
         // Given
-        let sut = makeSUT()
+        let (sut, _) = makeSUT()
         let endpointRouter = MockEndpointRouter()
         let request1 = endpointRouter.asURLRequest(baseURL: "https://example.com")!
         let request2 = endpointRouter.asURLRequest(baseURL: "https://example.com")!
 
         // When
-        let cancellable1 = sut.dispatch(request: request1)
+        _ = sut.dispatch(request: request1)
             .sink(receiveCompletion: { _ in }, receiveValue: { (_: MockEndpointRouter.ReturnType) in })
-        let cancellable2 = sut.dispatch(request: request2)
+        _ = sut.dispatch(request: request2)
             .sink(receiveCompletion: { _ in }, receiveValue: { (_: MockEndpointRouter.ReturnType) in })
 
         // Then
@@ -53,9 +52,7 @@ class APIClientTests: XCTestCase {
 
     func test_dispatch_deliversErrorsOnClientError() {
         // Given
-        let sut = makeSUT()
-        let endpointRouter = MockEndpointRouter()
-        let request = endpointRouter.asURLRequest(baseURL: "https://example.com")!
+        let (sut, request) = makeSUT()
         sut.responseStub = Fail<Data, NetworkRequestError>(error: .invalidRequest)
             .eraseToAnyPublisher()
 
@@ -76,9 +73,7 @@ class APIClientTests: XCTestCase {
 
     func test_dispatch_deliversErrorsOn200HTTPResponseWithInvalidJSON() {
         // Given
-        let sut = makeSUT()
-        let endpointRouter = MockEndpointRouter()
-        let request = endpointRouter.asURLRequest(baseURL: "https://example.com")!
+        let (sut, request) = makeSUT()
         let responseData = "invalidJSON".data(using: .utf8)!
         sut.responseStub = Just(responseData)
             .setFailureType(to: NetworkRequestError.self)
@@ -103,9 +98,7 @@ class APIClientTests: XCTestCase {
 
     func test_dispatch_deliversNoItemsOn200HTTPResponseWithEmptyJSONList() {
         // Given
-        let sut = makeSUT()
-        let endpointRouter = MockEndpointRouter()
-        let request = endpointRouter.asURLRequest(baseURL: "https://example.com")!
+        let (sut, request) = makeSUT()
         let responseData = "{\"results\": []}".data(using: .utf8)!
         sut.responseStub = Just(responseData)
             .setFailureType(to: NetworkRequestError.self)
@@ -126,9 +119,11 @@ class APIClientTests: XCTestCase {
 
     // MARK: - Helpers
 
-    private func makeSUT() -> HTTPClientSpy {
+    private func makeSUT() -> (sut: HTTPClientSpy, request: URLRequest) {
         let sut = HTTPClientSpy()
-        return sut
+        let endpointRouter = MockEndpointRouter()
+        let request = endpointRouter.asURLRequest(baseURL: "https://example.com")!
+        return (sut, request)
     }
 
     class HTTPClientSpy: HTTPClient {
