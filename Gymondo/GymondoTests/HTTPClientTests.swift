@@ -21,6 +21,21 @@ class APIClientTests: XCTestCase {
         XCTAssertFalse(httpClientSpy.dispatchCalled)
     }
 
+    func test_dispatch_requestsDataFromURLRequest() {
+        // Given
+        let endpointRouter = MockEndpointRouter()
+        let request = endpointRouter.asURLRequest(baseURL: "https://example.com")!
+
+        // When
+        let cancellable = httpClientSpy.dispatch(request: request)
+            .sink(receiveCompletion: { _ in }, receiveValue: { (_: MockEndpointRouter.ReturnType) in })
+
+        // Then
+        XCTAssertTrue(httpClientSpy.dispatchCalled)
+        XCTAssertEqual(httpClientSpy.capturedRequests.count, 1)
+        XCTAssertEqual(httpClientSpy.capturedRequests[0], request)
+    }
+
     // MARK: - Helpers
 
     class HTTPClientSpy: HTTPClient {
@@ -53,4 +68,10 @@ class APIClientTests: XCTestCase {
             }
         }
     }
+}
+
+struct MockEndpointRouter: EndpointRouter {
+    typealias ReturnType = Exercises
+
+    var path: String { return "/mockPath" }
 }
