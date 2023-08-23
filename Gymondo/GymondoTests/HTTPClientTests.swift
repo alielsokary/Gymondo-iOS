@@ -102,6 +102,28 @@ class APIClientTests: XCTestCase {
         XCTAssertEqual(receivedError, .decodingError(deccodingErrorMessage))
     }
 
+    func test_dispatch_deliversNoItemsOn200HTTPResponseWithEmptyJSONList() {
+        // Given
+        let endpointRouter = MockEndpointRouter()
+        let request = endpointRouter.asURLRequest(baseURL: "https://example.com")!
+        let responseData = "{\"results\": []}".data(using: .utf8)!
+        httpClientSpy.responseStub = Just(responseData)
+            .setFailureType(to: NetworkRequestError.self)
+            .eraseToAnyPublisher()
+
+        var receivedItems: [ExerciseItem]?
+
+        // When
+        _ = httpClientSpy.dispatch(request: request)
+            .sink(receiveCompletion: { _ in }, receiveValue: { items in
+                receivedItems = items
+            })
+
+        // Then
+        XCTAssertTrue(httpClientSpy.dispatchCalled)
+        XCTAssertNil(receivedItems)
+    }
+
     // MARK: - Helpers
 
     class HTTPClientSpy: HTTPClient {
