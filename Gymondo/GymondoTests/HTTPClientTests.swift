@@ -54,6 +54,28 @@ class APIClientTests: XCTestCase {
         XCTAssertEqual(httpClientSpy.capturedRequests[1], request2)
     }
 
+    func test_dispatch_deliversErrorsOnClientError() {
+        // Given
+        let endpointRouter = MockEndpointRouter()
+        let request = endpointRouter.asURLRequest(baseURL: "https://example.com")!
+        httpClientSpy.responseStub = Fail<Data, NetworkRequestError>(error: .invalidRequest)
+            .eraseToAnyPublisher()
+
+        var receivedError: NetworkRequestError?
+
+        // When
+        let cancellable = httpClientSpy.dispatch(request: request)
+            .sink(receiveCompletion: { completion in
+                if case let .failure(error) = completion {
+                    receivedError = error
+                }
+            }, receiveValue: { (_: MockEndpointRouter.ReturnType) in })
+
+        // Then
+        XCTAssertTrue(httpClientSpy.dispatchCalled)
+        XCTAssertEqual(receivedError, .invalidRequest)
+    }
+
     // MARK: - Helpers
 
     class HTTPClientSpy: HTTPClient {
