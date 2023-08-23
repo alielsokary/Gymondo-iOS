@@ -11,60 +11,58 @@ import Combine
 
 class APIClientTests: XCTestCase {
 
-    var httpClientSpy: HTTPClientSpy!
-
-    override func setUpWithError() throws {
-        httpClientSpy = HTTPClientSpy()
-    }
-
     func test_init_doesNotRequestDataFromURLRequest() {
-        XCTAssertFalse(httpClientSpy.dispatchCalled)
+        let sut = makeSUT()
+        XCTAssertFalse(sut.dispatchCalled)
     }
 
     func test_dispatch_requestsDataFromURLRequest() {
         // Given
+        let sut = makeSUT()
         let endpointRouter = MockEndpointRouter()
         let request = endpointRouter.asURLRequest(baseURL: "https://example.com")!
 
         // When
-        let cancellable = httpClientSpy.dispatch(request: request)
+        let cancellable = sut.dispatch(request: request)
             .sink(receiveCompletion: { _ in }, receiveValue: { (_: MockEndpointRouter.ReturnType) in })
 
         // Then
-        XCTAssertTrue(httpClientSpy.dispatchCalled)
-        XCTAssertEqual(httpClientSpy.capturedRequests.count, 1)
-        XCTAssertEqual(httpClientSpy.capturedRequests[0], request)
+        XCTAssertTrue(sut.dispatchCalled)
+        XCTAssertEqual(sut.capturedRequests.count, 1)
+        XCTAssertEqual(sut.capturedRequests[0], request)
     }
 
     func test_dispatchTwice_requestsDataFromURLRequestTwice() {
         // Given
+        let sut = makeSUT()
         let endpointRouter = MockEndpointRouter()
         let request1 = endpointRouter.asURLRequest(baseURL: "https://example.com")!
         let request2 = endpointRouter.asURLRequest(baseURL: "https://example.com")!
 
         // When
-        let cancellable1 = httpClientSpy.dispatch(request: request1)
+        let cancellable1 = sut.dispatch(request: request1)
             .sink(receiveCompletion: { _ in }, receiveValue: { (_: MockEndpointRouter.ReturnType) in })
-        let cancellable2 = httpClientSpy.dispatch(request: request2)
+        let cancellable2 = sut.dispatch(request: request2)
             .sink(receiveCompletion: { _ in }, receiveValue: { (_: MockEndpointRouter.ReturnType) in })
 
         // Then
-        XCTAssertEqual(httpClientSpy.capturedRequests.count, 2)
-        XCTAssertEqual(httpClientSpy.capturedRequests[0], request1)
-        XCTAssertEqual(httpClientSpy.capturedRequests[1], request2)
+        XCTAssertEqual(sut.capturedRequests.count, 2)
+        XCTAssertEqual(sut.capturedRequests[0], request1)
+        XCTAssertEqual(sut.capturedRequests[1], request2)
     }
 
     func test_dispatch_deliversErrorsOnClientError() {
         // Given
+        let sut = makeSUT()
         let endpointRouter = MockEndpointRouter()
         let request = endpointRouter.asURLRequest(baseURL: "https://example.com")!
-        httpClientSpy.responseStub = Fail<Data, NetworkRequestError>(error: .invalidRequest)
+        sut.responseStub = Fail<Data, NetworkRequestError>(error: .invalidRequest)
             .eraseToAnyPublisher()
 
         var receivedError: NetworkRequestError?
 
         // When
-        _ = httpClientSpy.dispatch(request: request)
+        _ = sut.dispatch(request: request)
             .sink(receiveCompletion: { completion in
                 if case let .failure(error) = completion {
                     receivedError = error
@@ -72,23 +70,24 @@ class APIClientTests: XCTestCase {
             }, receiveValue: { (_: MockEndpointRouter.ReturnType) in })
 
         // Then
-        XCTAssertTrue(httpClientSpy.dispatchCalled)
+        XCTAssertTrue(sut.dispatchCalled)
         XCTAssertEqual(receivedError, .invalidRequest)
     }
 
     func test_dispatch_deliversErrorsOn200HTTPResponseWithInvalidJSON() {
         // Given
+        let sut = makeSUT()
         let endpointRouter = MockEndpointRouter()
         let request = endpointRouter.asURLRequest(baseURL: "https://example.com")!
         let responseData = "invalidJSON".data(using: .utf8)!
-        httpClientSpy.responseStub = Just(responseData)
+        sut.responseStub = Just(responseData)
             .setFailureType(to: NetworkRequestError.self)
             .eraseToAnyPublisher()
 
         var receivedError: NetworkRequestError?
 
         // When
-        _ = httpClientSpy.dispatch(request: request)
+        _ = sut.dispatch(request: request)
             .sink(receiveCompletion: { completion in
                 if case let .failure(error) = completion {
                     receivedError = error
@@ -98,33 +97,39 @@ class APIClientTests: XCTestCase {
         let deccodingErrorMessage = "The data couldn’t be read because it isn’t in the correct format."
 
         // Then
-        XCTAssertTrue(httpClientSpy.dispatchCalled)
+        XCTAssertTrue(sut.dispatchCalled)
         XCTAssertEqual(receivedError, .decodingError(deccodingErrorMessage))
     }
 
     func test_dispatch_deliversNoItemsOn200HTTPResponseWithEmptyJSONList() {
         // Given
+        let sut = makeSUT()
         let endpointRouter = MockEndpointRouter()
         let request = endpointRouter.asURLRequest(baseURL: "https://example.com")!
         let responseData = "{\"results\": []}".data(using: .utf8)!
-        httpClientSpy.responseStub = Just(responseData)
+        sut.responseStub = Just(responseData)
             .setFailureType(to: NetworkRequestError.self)
             .eraseToAnyPublisher()
 
         var receivedItems: [ExerciseItem]?
 
         // When
-        _ = httpClientSpy.dispatch(request: request)
+        _ = sut.dispatch(request: request)
             .sink(receiveCompletion: { _ in }, receiveValue: { items in
                 receivedItems = items
             })
 
         // Then
-        XCTAssertTrue(httpClientSpy.dispatchCalled)
+        XCTAssertTrue(sut.dispatchCalled)
         XCTAssertNil(receivedItems)
     }
 
     // MARK: - Helpers
+
+    private func makeSUT() -> HTTPClientSpy {
+        let sut = HTTPClientSpy()
+        return sut
+    }
 
     class HTTPClientSpy: HTTPClient {
         private(set) var dispatchCalled = false
