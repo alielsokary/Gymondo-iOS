@@ -117,6 +117,53 @@ class APIClientTests: XCTestCase {
         XCTAssertNil(receivedItems)
     }
 
+    func test_dispatch_deliversItemsOn200HTTPResponseWithJSONItems() {
+        // Given
+        let (sut, request) = makeSUT()
+
+        let item1 = makeItem(id: 1,
+                             uuid: "uuid",
+                             name: "name",
+                             exerciseBase: 3,
+                             description: "desc",
+                             created: "date",
+                             category: 2,
+                             language: 2,
+                             variations: [1, 2, 3])
+
+        let item2 = makeItem(id: 2,
+                             uuid: "uuid",
+                             name: "name",
+                             exerciseBase: 3,
+                             description: "desc",
+                             created: "date",
+                             category: 2,
+                             language: 2,
+                             variations: [1, 2, 3])
+
+        let jsonData = makeItemsJSON([item1.json, item2.json])
+
+        sut.responseStub = Just(jsonData)
+            .setFailureType(to: NetworkRequestError.self)
+            .eraseToAnyPublisher()
+
+        var receivedItems: Exercises?
+
+        // When
+        _ = sut.dispatch(request: request)
+            .sink(receiveCompletion: { _ in }, receiveValue: { items in
+                receivedItems = items
+            })
+
+        // Then
+        XCTAssertNotNil(receivedItems)
+        XCTAssertEqual(receivedItems?.results?.count, 2)
+        XCTAssertEqual(receivedItems!.results?.first?.id, item1.model.id)
+        XCTAssertEqual(receivedItems!.results?.first?.name, item1.model.name)
+        XCTAssertEqual(receivedItems!.results?.last?.id, item2.model.id)
+        XCTAssertEqual(receivedItems!.results?.last?.name, item2.model.name)
+    }
+
     // MARK: - Helpers
 
     private func makeSUT() -> (sut: HTTPClientSpy, request: URLRequest) {
@@ -124,6 +171,28 @@ class APIClientTests: XCTestCase {
         let endpointRouter = MockEndpointRouter()
         let request = endpointRouter.asURLRequest(baseURL: "https://example.com")!
         return (sut, request)
+    }
+
+    private func makeItem(id: Int?, uuid: String?, name: String?, exerciseBase: Int?, description: String?, created: String?, category: Int?, language: Int?, variations: [Int]?) -> (model: ExerciseItem, json: [String: Any]) {
+        let item = ExerciseItem(id: id, uuid: uuid, name: name, exerciseBase: exerciseBase, description: description, created: created, category: category, language: language, variations: variations)
+        let json: [String: Any] = [
+                    "id": id!,
+                    "uuid": uuid!,
+                    "name": name!,
+                    "exerciseBase": exerciseBase!,
+                    "description": description!,
+                    "created": created!,
+                    "category": category!,
+                    "language": language!,
+                    "variations": variations!
+        ] as [String: Any]
+        let mappedJSONValues = json.compactMapValues { $0 }
+        return (item, mappedJSONValues)
+    }
+
+    private func makeItemsJSON(_ items: [[String: Any]]) -> Data {
+        let json = ["results": items]
+        return try! JSONSerialization.data(withJSONObject: json)
     }
 
     class HTTPClientSpy: HTTPClient {
