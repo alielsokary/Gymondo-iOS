@@ -195,9 +195,3 @@ class APIClientTests: XCTestCase {
         return try! JSONSerialization.data(withJSONObject: json)
     }
 }
-
-struct MockEndpointRouter: EndpointRouter {
-    typealias ReturnType = Exercises
-
-    var path: String { return "/mockPath" }
-}
