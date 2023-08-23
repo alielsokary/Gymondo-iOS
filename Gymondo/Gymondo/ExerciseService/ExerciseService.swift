@@ -17,6 +17,7 @@ struct ExerciseServiceImpl: ExerciseService {
 
     var apiClient: APIClient = APIClient()
 
+    @discardableResult
     func dispatch<R: EndpointRouter>(_ request: R) -> AnyPublisher<R.ReturnType, NetworkRequestError> {
         guard let urlRequest = request.asURLRequest(baseURL: APIConstants.basedURL) else {
             return Fail(outputType: R.ReturnType.self, failure: NetworkRequestError.badRequest).eraseToAnyPublisher()
