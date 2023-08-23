@@ -11,8 +11,16 @@ import Combine
 
 class APIClientTests: XCTestCase {
 
-    
-    
+    var httpClientSpy: HTTPClientSpy!
+
+    override func setUpWithError() throws {
+        httpClientSpy = HTTPClientSpy()
+    }
+
+    func test_init_doesNotRequestDataFromURLRequest() {
+        XCTAssertFalse(httpClientSpy.dispatchCalled)
+    }
+
     // MARK: - Helpers
 
     class HTTPClientSpy: HTTPClient {
