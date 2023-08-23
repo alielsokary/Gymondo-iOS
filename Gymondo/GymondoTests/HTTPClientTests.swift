@@ -36,6 +36,24 @@ class APIClientTests: XCTestCase {
         XCTAssertEqual(httpClientSpy.capturedRequests[0], request)
     }
 
+    func test_dispatchTwice_requestsDataFromURLRequestTwice() {
+        // Given
+        let endpointRouter = MockEndpointRouter()
+        let request1 = endpointRouter.asURLRequest(baseURL: "https://example.com")!
+        let request2 = endpointRouter.asURLRequest(baseURL: "https://example.com")!
+
+        // When
+        let cancellable1 = httpClientSpy.dispatch(request: request1)
+            .sink(receiveCompletion: { _ in }, receiveValue: { (_: MockEndpointRouter.ReturnType) in })
+        let cancellable2 = httpClientSpy.dispatch(request: request2)
+            .sink(receiveCompletion: { _ in }, receiveValue: { (_: MockEndpointRouter.ReturnType) in })
+
+        // Then
+        XCTAssertEqual(httpClientSpy.capturedRequests.count, 2)
+        XCTAssertEqual(httpClientSpy.capturedRequests[0], request1)
+        XCTAssertEqual(httpClientSpy.capturedRequests[1], request2)
+    }
+
     // MARK: - Helpers
 
     class HTTPClientSpy: HTTPClient {
