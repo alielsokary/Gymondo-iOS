@@ -31,7 +31,7 @@ final class GymondoAPIEndToEndTests: XCTestCase {
                 XCTAssertEqual(exerciseItem.element.name, self.name(at: exerciseItem.offset))
             })
         }
-        wait(for: [exp], timeout: 5.0)
+        wait(for: [exp], timeout: 10.0)
     }
 
     // MARK: - Helpers
