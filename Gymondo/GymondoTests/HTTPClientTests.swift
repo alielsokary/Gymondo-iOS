@@ -164,10 +164,23 @@ class APIClientTests: XCTestCase {
         XCTAssertEqual(receivedItems!.results?.last?.name, item2.model.name)
     }
 
+    func test_dispatch_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
+        var sut: HTTPClientSpy? = HTTPClientSpy()
+        let endpointRouter = MockEndpointRouter()
+        let request = endpointRouter.asURLRequest(baseURL: "https://example.com")!
+        _ = sut?.dispatch(request: request)
+            .sink(receiveCompletion: { _ in }, receiveValue: { (_: MockEndpointRouter.ReturnType) in })
+
+        sut = nil
+        let capturedRequests = (sut?.capturedRequests).unwrapped
+        XCTAssertTrue(capturedRequests.isEmpty)
+    }
+
     // MARK: - Helpers
 
-    private func makeSUT() -> (sut: HTTPClientSpy, request: URLRequest) {
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: HTTPClientSpy, request: URLRequest) {
         let sut = HTTPClientSpy()
+        trackForMemoryLeaks(sut, file: file, line: line)
         let endpointRouter = MockEndpointRouter()
         let request = endpointRouter.asURLRequest(baseURL: "https://example.com")!
         return (sut, request)

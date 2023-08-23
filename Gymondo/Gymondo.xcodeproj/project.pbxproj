@@ -17,6 +17,7 @@
 		415447C22A9565D900472BF5 /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415447C12A9565D900472BF5 /* HTTPClientSpy.swift */; };
 		415447C52A96993D00472BF5 /* MockEndpointRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415447C42A96993D00472BF5 /* MockEndpointRouter.swift */; };
 		415447C82A969E2A00472BF5 /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415447C72A969E2A00472BF5 /* Optional+Extension.swift */; };
+		415447CA2A969E6A00472BF5 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415447C92A969E6A00472BF5 /* XCTestCase+MemoryLeakTracking.swift */; };
 		41D899DF2A940A9200291E5F /* Gymondo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D899D62A940A9200291E5F /* Gymondo.framework */; };
 		41D899E52A940A9200291E5F /* Gymondo.h in Headers */ = {isa = PBXBuildFile; fileRef = 41D899D92A940A9200291E5F /* Gymondo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		41D899EF2A940AF700291E5F /* Exercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D899EE2A940AF700291E5F /* Exercises.swift */; };
@@ -44,6 +45,7 @@
 		415447C12A9565D900472BF5 /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
 		415447C42A96993D00472BF5 /* MockEndpointRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEndpointRouter.swift; sourceTree = "<group>"; };
 		415447C72A969E2A00472BF5 /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
+		415447C92A969E6A00472BF5 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		41D899D62A940A9200291E5F /* Gymondo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gymondo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D899D92A940A9200291E5F /* Gymondo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Gymondo.h; sourceTree = "<group>"; };
 		41D899DE2A940A9200291E5F /* GymondoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GymondoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +96,7 @@
 			children = (
 				415447C12A9565D900472BF5 /* HTTPClientSpy.swift */,
 				415447C42A96993D00472BF5 /* MockEndpointRouter.swift */,
+				415447C92A969E6A00472BF5 /* XCTestCase+MemoryLeakTracking.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				415447C52A96993D00472BF5 /* MockEndpointRouter.swift in Sources */,
+				415447CA2A969E6A00472BF5 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 				415447BD2A95109300472BF5 /* HTTPClientTests.swift in Sources */,
 				415447C22A9565D900472BF5 /* HTTPClientSpy.swift in Sources */,
 			);
