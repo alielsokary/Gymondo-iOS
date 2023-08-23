@@ -17,7 +17,8 @@
           "name" : "Gymondo"
         }
       ]
-    }
+    },
+    "testExecutionOrdering" : "random"
   },
   "testTargets" : [
     {
@@ -25,6 +26,13 @@
         "containerPath" : "container:Gymondo.xcodeproj",
         "identifier" : "41D899DD2A940A9200291E5F",
         "name" : "GymondoTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Gymondo.xcodeproj",
+        "identifier" : "415447CE2A96ABEF00472BF5",
+        "name" : "GymondoAPIEndToEndTests"
       }
     }
   ],
