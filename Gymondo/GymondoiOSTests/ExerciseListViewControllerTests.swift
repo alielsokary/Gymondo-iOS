@@ -49,15 +49,15 @@ final class ExerciseListViewControllerTests: XCTestCase {
         XCTAssertEqual(viewModel.loadCallCount, 1)
     }
 
-    func test_pullToRefresh_loadsExercisees() {
+    func test_userInitiatedExerciseLoad_loadsExercisees() {
         let (sut, viewModel) = makeSUT()
 
         sut.loadViewIfNeeded()
 
-        sut.refreshControl?.simulatePullToRefresh()
+        sut.simulateUserInitiatedExerciseLoad()
         XCTAssertEqual(viewModel.loadCallCount, 2)
 
-        sut.refreshControl?.simulatePullToRefresh()
+        sut.simulateUserInitiatedExerciseLoad()
         XCTAssertEqual(viewModel.loadCallCount, 3)
     }
 
@@ -78,18 +78,18 @@ final class ExerciseListViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
     }
 
-    func test_pullToRefresh_showsLoadingIndicator() {
+    func test_userInitiatedExerciseLoad_showsLoadingIndicator() {
         let (sut, _) = makeSUT()
 
-        sut.refreshControl?.simulatePullToRefresh()
+        sut.simulateUserInitiatedExerciseLoad()
 
         XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
     }
 
-    func test_pullToRefresh_hidesLoadingIndicatorOnLoaderCompletion() {
+    func test_userInitiatedExerciseLoad_hidesLoadingIndicatorOnLoaderCompletion() {
         let (sut, viewModel) = makeSUT()
 
-        sut.refreshControl?.simulatePullToRefresh()
+        sut.simulateUserInitiatedExerciseLoad()
         viewModel.completeFeedLoading()
 
         XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
@@ -119,6 +119,12 @@ final class ExerciseListViewControllerTests: XCTestCase {
         func completeFeedLoading() {
             completions[0]()
         }
+    }
+}
+
+private extension ExerciseListViewController {
+    func simulateUserInitiatedExerciseLoad() {
+        refreshControl?.simulatePullToRefresh()
     }
 }
 
