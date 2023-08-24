@@ -51,13 +51,11 @@ final class ExerciseListViewControllerTests: XCTestCase {
 
         sut.loadViewIfNeeded()
 
-        sut.refreshControl?.allTargets.forEach { target in
-            sut.refreshControl?.actions(forTarget: target, forControlEvent: .valueChanged)?.forEach {
-                (target as NSObject).perform(Selector($0))
-            }
-        }
-
+        sut.refreshControl?.simulatePullToRefresh()
         XCTAssertEqual(viewModel.loadCallCount, 2)
+
+        sut.refreshControl?.simulatePullToRefresh()
+        XCTAssertEqual(viewModel.loadCallCount, 3)
     }
 
     // MARK: - Helpers
@@ -75,6 +73,16 @@ final class ExerciseListViewControllerTests: XCTestCase {
 
         func start() {
             loadCallCount += 1
+        }
+    }
+}
+
+private extension UIRefreshControl {
+    func simulatePullToRefresh() {
+        allTargets.forEach { target in
+            actions(forTarget: target, forControlEvent: .valueChanged)?.forEach {
+                (target as NSObject).perform(Selector($0))
+            }
         }
     }
 }
