@@ -9,7 +9,7 @@ import XCTest
 import UIKit
 @testable import Gymondo
 
-final class ExerciseListViewController: UIViewController {
+final class ExerciseListViewController: UITableViewController {
     private var viewModel: ExerciseListViewModelLogic?
 
     convenience init(viewModel: ExerciseListViewModelLogic) {
@@ -19,7 +19,12 @@ final class ExerciseListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        viewModel?.start()
+    }
 
+    @objc private func refresh() {
         viewModel?.start()
     }
 
@@ -39,6 +44,20 @@ final class ExerciseListViewControllerTests: XCTestCase {
         sut.loadViewIfNeeded()
 
         XCTAssertEqual(viewModel.loadCallCount, 1)
+    }
+
+    func test_pullToRefresh_loadsExercisees() {
+        let (sut, viewModel) = makeSUT()
+
+        sut.loadViewIfNeeded()
+
+        sut.refreshControl?.allTargets.forEach { target in
+            sut.refreshControl?.actions(forTarget: target, forControlEvent: .valueChanged)?.forEach {
+                (target as NSObject).perform(Selector($0))
+            }
+        }
+
+        XCTAssertEqual(viewModel.loadCallCount, 2)
     }
 
     // MARK: - Helpers
