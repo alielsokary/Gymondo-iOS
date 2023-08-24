@@ -28,15 +28,13 @@ final class ExerciseListViewController: UIViewController {
 final class ExerciseListViewControllerTests: XCTestCase {
 
     func test_init_doesNotLoadExerciseList() {
-        let viewModel = ViewModelSpy()
-        _ = ExerciseListViewController(viewModel: viewModel)
+        let (_, viewModel) = makeSUT()
 
         XCTAssertEqual(viewModel.loadCallCount, 0)
     }
 
     func test_viewDidLoad_loadsExerciseList() {
-        let viewModel = ViewModelSpy()
-        let sut = ExerciseListViewController(viewModel: viewModel)
+        let (sut, viewModel) = makeSUT()
 
         sut.loadViewIfNeeded()
 
@@ -44,6 +42,13 @@ final class ExerciseListViewControllerTests: XCTestCase {
     }
 
     // MARK: - Helpers
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: ExerciseListViewController, viewModel: ViewModelSpy) {
+        let viewModel = ViewModelSpy()
+        let sut = ExerciseListViewController(viewModel: viewModel)
+        trackForMemoryLeaks(viewModel, file: file, line: line)
+        trackForMemoryLeaks(sut, file: file, line: line)
+        return (sut, viewModel)
+    }
 
     class ViewModelSpy: ExerciseListViewModelLogic {
 
