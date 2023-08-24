@@ -23,6 +23,9 @@
 		415447DA2A96AF6300472BF5 /* ExercisesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415447D92A96AF6300472BF5 /* ExercisesRouter.swift */; };
 		415447E92A97813900472BF5 /* GymondoiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 415447E12A97813900472BF5 /* GymondoiOS.framework */; };
 		415447F92A9782AA00472BF5 /* ExerciseListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415447F82A9782AA00472BF5 /* ExerciseListViewControllerTests.swift */; };
+		415447FC2A978D1600472BF5 /* ExerciseListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415447FB2A978D1600472BF5 /* ExerciseListViewModel.swift */; };
+		415447FE2A978F6F00472BF5 /* Gymondo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D899D62A940A9200291E5F /* Gymondo.framework */; platformFilter = ios; };
+		415447FF2A978F6F00472BF5 /* Gymondo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41D899D62A940A9200291E5F /* Gymondo.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		41D899DF2A940A9200291E5F /* Gymondo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D899D62A940A9200291E5F /* Gymondo.framework */; };
 		41D899EF2A940AF700291E5F /* Exercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D899EE2A940AF700291E5F /* Exercises.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +45,13 @@
 			remoteGlobalIDString = 415447E02A97813900472BF5;
 			remoteInfo = GymondoiOS;
 		};
+		415448002A978F6F00472BF5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 41D899CD2A940A9200291E5F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 41D899D52A940A9200291E5F;
+			remoteInfo = Gymondo;
+		};
 		41D899E02A940A9200291E5F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 41D899CD2A940A9200291E5F /* Project object */;
@@ -50,6 +60,20 @@
 			remoteInfo = Gymondo;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		415448022A978F7000472BF5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				415447FF2A978F6F00472BF5 /* Gymondo.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		415447AE2A94EF0900472BF5 /* CI_macOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CI_macOS.xctestplan; sourceTree = "<group>"; };
@@ -72,6 +96,7 @@
 		415447E82A97813900472BF5 /* GymondoiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GymondoiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		415447F72A97820D00472BF5 /* GymondoiOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = GymondoiOS.xctestplan; path = ../GymondoiOS.xctestplan; sourceTree = "<group>"; };
 		415447F82A9782AA00472BF5 /* ExerciseListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListViewControllerTests.swift; sourceTree = "<group>"; };
+		415447FB2A978D1600472BF5 /* ExerciseListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListViewModel.swift; sourceTree = "<group>"; };
 		41D899D62A940A9200291E5F /* Gymondo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gymondo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D899DE2A940A9200291E5F /* GymondoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GymondoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D899EE2A940AF700291E5F /* Exercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercises.swift; sourceTree = "<group>"; };
@@ -90,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				415447FE2A978F6F00472BF5 /* Gymondo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +207,21 @@
 			path = GymondoiOSTests;
 			sourceTree = "<group>";
 		};
+		415447FA2A978CFF00472BF5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				415447FB2A978D1600472BF5 /* ExerciseListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		415447FD2A978F6F00472BF5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		41D899CC2A940A9200291E5F = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +234,7 @@
 				415447E22A97813900472BF5 /* GymondoiOS */,
 				415447EC2A97813900472BF5 /* GymondoiOSTests */,
 				41D899D72A940A9200291E5F /* Products */,
+				415447FD2A978F6F00472BF5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -211,6 +253,7 @@
 		41D899D82A940A9200291E5F /* Gymondo */ = {
 			isa = PBXGroup;
 			children = (
+				415447FA2A978CFF00472BF5 /* ViewModel */,
 				415447C62A969E1300472BF5 /* Extensions */,
 				415447BE2A955FAB00472BF5 /* ExerciseService */,
 				415447AF2A94F0F400472BF5 /* Networking */,
@@ -282,10 +325,12 @@
 				415447DD2A97813900472BF5 /* Sources */,
 				415447DE2A97813900472BF5 /* Frameworks */,
 				415447DF2A97813900472BF5 /* Resources */,
+				415448022A978F7000472BF5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				415448012A978F6F00472BF5 /* PBXTargetDependency */,
 			);
 			name = GymondoiOS;
 			productName = GymondoiOS;
@@ -487,6 +532,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				415447FC2A978D1600472BF5 /* ExerciseListViewModel.swift in Sources */,
 				415447B52A94F22400472BF5 /* HTTPMethod.swift in Sources */,
 				415447C82A969E2A00472BF5 /* Optional+Extension.swift in Sources */,
 				415447B12A94F12100472BF5 /* APIConstants.swift in Sources */,
@@ -522,6 +568,12 @@
 			isa = PBXTargetDependency;
 			target = 415447E02A97813900472BF5 /* GymondoiOS */;
 			targetProxy = 415447EA2A97813900472BF5 /* PBXContainerItemProxy */;
+		};
+		415448012A978F6F00472BF5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = 41D899D52A940A9200291E5F /* Gymondo */;
+			targetProxy = 415448002A978F6F00472BF5 /* PBXContainerItemProxy */;
 		};
 		41D899E12A940A9200291E5F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
