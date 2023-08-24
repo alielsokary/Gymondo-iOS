@@ -8,12 +8,12 @@
 import Foundation
 
 protocol ExerciseListViewModelLogic {
-    func start()
+    func start(completion: @escaping () -> Void)
 }
 
 class ExerciseListViewModel: ExerciseListViewModelLogic {
 
-    func start() {
+    func start(completion: @escaping () -> Void) {
 
     }
 }

@@ -22,11 +22,13 @@ final class ExerciseListViewController: UITableViewController {
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         refreshControl?.beginRefreshing()
-        viewModel?.start()
+        refresh()
     }
 
     @objc private func refresh() {
-        viewModel?.start()
+        viewModel?.start { [weak self] in
+            self?.refreshControl?.endRefreshing()
+        }
     }
 
 }
@@ -67,6 +69,15 @@ final class ExerciseListViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
     }
 
+    func test_viewDidLoad_hidesLoadingIndicatorOnLoaderCompletion() {
+        let (sut, viewModel) = makeSUT()
+
+        sut.loadViewIfNeeded()
+        viewModel.completeFeedLoading()
+
+        XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
+    }
+
     // MARK: - Helpers
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: ExerciseListViewController, viewModel: ViewModelSpy) {
         let viewModel = ViewModelSpy()
@@ -78,10 +89,23 @@ final class ExerciseListViewControllerTests: XCTestCase {
 
     class ViewModelSpy: ExerciseListViewModelLogic {
 
-        private(set) var loadCallCount: Int = 0
+        enum Message {
+            case success
+            case failure
+        }
 
-        func start() {
-            loadCallCount += 1
+        private var completions = [() -> Void]()
+
+        var loadCallCount: Int {
+            return completions.count
+        }
+
+        func start(completion: @escaping () -> Void) {
+            completions.append(completion)
+        }
+
+        func completeFeedLoading() {
+            completions[0]()
         }
     }
 }
