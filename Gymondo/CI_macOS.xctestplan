@@ -15,6 +15,11 @@
           "containerPath" : "container:Gymondo.xcodeproj",
           "identifier" : "41D899D52A940A9200291E5F",
           "name" : "Gymondo"
+        },
+        {
+          "containerPath" : "container:Gymondo.xcodeproj",
+          "identifier" : "415447E02A97813900472BF5",
+          "name" : "GymondoiOS"
         }
       ]
     },
@@ -33,6 +38,13 @@
         "containerPath" : "container:Gymondo.xcodeproj",
         "identifier" : "415447CE2A96ABEF00472BF5",
         "name" : "GymondoAPIEndToEndTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Gymondo.xcodeproj",
+        "identifier" : "415447E72A97813900472BF5",
+        "name" : "GymondoiOSTests"
       }
     }
   ],
