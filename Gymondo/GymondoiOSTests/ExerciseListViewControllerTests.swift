@@ -86,6 +86,15 @@ final class ExerciseListViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
     }
 
+    func test_pullToRefresh_hidesLoadingIndicatorOnLoaderCompletion() {
+        let (sut, viewModel) = makeSUT()
+
+        sut.refreshControl?.simulatePullToRefresh()
+        viewModel.completeFeedLoading()
+
+        XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
+    }
+
     // MARK: - Helpers
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: ExerciseListViewController, viewModel: ViewModelSpy) {
         let viewModel = ViewModelSpy()
