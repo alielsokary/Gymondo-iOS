@@ -66,7 +66,7 @@ final class ExerciseListViewControllerTests: XCTestCase {
 
         sut.loadViewIfNeeded()
 
-        XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
+        XCTAssertTrue(sut.isShowingLoadingIndicator)
     }
 
     func test_viewDidLoad_hidesLoadingIndicatorOnLoaderCompletion() {
@@ -75,7 +75,7 @@ final class ExerciseListViewControllerTests: XCTestCase {
         sut.loadViewIfNeeded()
         viewModel.completeFeedLoading()
 
-        XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
+        XCTAssertFalse(sut.isShowingLoadingIndicator)
     }
 
     func test_userInitiatedExerciseLoad_showsLoadingIndicator() {
@@ -83,7 +83,7 @@ final class ExerciseListViewControllerTests: XCTestCase {
 
         sut.simulateUserInitiatedExerciseLoad()
 
-        XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
+        XCTAssertTrue(sut.isShowingLoadingIndicator)
     }
 
     func test_userInitiatedExerciseLoad_hidesLoadingIndicatorOnLoaderCompletion() {
@@ -92,7 +92,7 @@ final class ExerciseListViewControllerTests: XCTestCase {
         sut.simulateUserInitiatedExerciseLoad()
         viewModel.completeFeedLoading()
 
-        XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
+        XCTAssertFalse(sut.isShowingLoadingIndicator)
     }
 
     // MARK: - Helpers
@@ -125,6 +125,10 @@ final class ExerciseListViewControllerTests: XCTestCase {
 private extension ExerciseListViewController {
     func simulateUserInitiatedExerciseLoad() {
         refreshControl?.simulatePullToRefresh()
+    }
+
+    var isShowingLoadingIndicator: Bool {
+        return refreshControl?.isRefreshing == true
     }
 }
 
