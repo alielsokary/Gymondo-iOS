@@ -7,13 +7,13 @@
 
 import Foundation
 
-protocol ExerciseListViewModelLogic {
+public protocol ExerciseListViewModelLogic {
     func start(completion: @escaping () -> Void)
 }
 
-class ExerciseListViewModel: ExerciseListViewModelLogic {
+public class ExerciseListViewModel: ExerciseListViewModelLogic {
 
-    func start(completion: @escaping () -> Void) {
+    public func start(completion: @escaping () -> Void) {
 
     }
 }

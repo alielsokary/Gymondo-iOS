@@ -27,6 +27,7 @@
 		415447FE2A978F6F00472BF5 /* Gymondo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D899D62A940A9200291E5F /* Gymondo.framework */; platformFilter = ios; };
 		415447FF2A978F6F00472BF5 /* Gymondo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41D899D62A940A9200291E5F /* Gymondo.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		415448032A97910200472BF5 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415447C92A969E6A00472BF5 /* XCTestCase+MemoryLeakTracking.swift */; };
+		415448052A97B31200472BF5 /* ExerciseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415448042A97B31200472BF5 /* ExerciseListViewController.swift */; };
 		41D899DF2A940A9200291E5F /* Gymondo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D899D62A940A9200291E5F /* Gymondo.framework */; };
 		41D899EF2A940AF700291E5F /* Exercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D899EE2A940AF700291E5F /* Exercises.swift */; };
 /* End PBXBuildFile section */
@@ -98,6 +99,7 @@
 		415447F72A97820D00472BF5 /* GymondoiOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = GymondoiOS.xctestplan; path = ../GymondoiOS.xctestplan; sourceTree = "<group>"; };
 		415447F82A9782AA00472BF5 /* ExerciseListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListViewControllerTests.swift; sourceTree = "<group>"; };
 		415447FB2A978D1600472BF5 /* ExerciseListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListViewModel.swift; sourceTree = "<group>"; };
+		415448042A97B31200472BF5 /* ExerciseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListViewController.swift; sourceTree = "<group>"; };
 		41D899D62A940A9200291E5F /* Gymondo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gymondo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D899DE2A940A9200291E5F /* GymondoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GymondoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D899EE2A940AF700291E5F /* Exercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercises.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 		415447E22A97813900472BF5 /* GymondoiOS */ = {
 			isa = PBXGroup;
 			children = (
+				415448042A97B31200472BF5 /* ExerciseListViewController.swift */,
 			);
 			path = GymondoiOS;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 					};
 					415447E02A97813900472BF5 = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
 					};
 					415447E72A97813900472BF5 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -518,6 +522,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				415448052A97B31200472BF5 /* ExerciseListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +623,7 @@
 		415447F12A97813900472BF5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -642,6 +648,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -650,6 +657,7 @@
 		415447F22A97813900472BF5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -683,6 +691,7 @@
 		415447F42A97813900472BF5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -702,6 +711,7 @@
 		415447F52A97813900472BF5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
