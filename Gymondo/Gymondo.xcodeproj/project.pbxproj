@@ -21,8 +21,9 @@
 		415447D22A96ABEF00472BF5 /* GymondoAPIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415447D12A96ABEF00472BF5 /* GymondoAPIEndToEndTests.swift */; };
 		415447D32A96ABEF00472BF5 /* Gymondo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D899D62A940A9200291E5F /* Gymondo.framework */; };
 		415447DA2A96AF6300472BF5 /* ExercisesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415447D92A96AF6300472BF5 /* ExercisesRouter.swift */; };
+		415447E92A97813900472BF5 /* GymondoiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 415447E12A97813900472BF5 /* GymondoiOS.framework */; };
+		415447F92A9782AA00472BF5 /* GymondoiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415447F82A9782AA00472BF5 /* GymondoiOSTests.swift */; };
 		41D899DF2A940A9200291E5F /* Gymondo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D899D62A940A9200291E5F /* Gymondo.framework */; };
-		41D899E52A940A9200291E5F /* Gymondo.h in Headers */ = {isa = PBXBuildFile; fileRef = 41D899D92A940A9200291E5F /* Gymondo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		41D899EF2A940AF700291E5F /* Exercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D899EE2A940AF700291E5F /* Exercises.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 41D899D52A940A9200291E5F;
 			remoteInfo = Gymondo;
+		};
+		415447EA2A97813900472BF5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 41D899CD2A940A9200291E5F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 415447E02A97813900472BF5;
+			remoteInfo = GymondoiOS;
 		};
 		41D899E02A940A9200291E5F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -60,8 +68,11 @@
 		415447D12A96ABEF00472BF5 /* GymondoAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymondoAPIEndToEndTests.swift; sourceTree = "<group>"; };
 		415447D92A96AF6300472BF5 /* ExercisesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesRouter.swift; sourceTree = "<group>"; };
 		415447DB2A96B61500472BF5 /* GymondoAPIEndToEndTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = GymondoAPIEndToEndTests.xctestplan; sourceTree = "<group>"; };
+		415447E12A97813900472BF5 /* GymondoiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GymondoiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		415447E82A97813900472BF5 /* GymondoiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GymondoiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		415447F72A97820D00472BF5 /* GymondoiOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = GymondoiOS.xctestplan; path = ../GymondoiOS.xctestplan; sourceTree = "<group>"; };
+		415447F82A9782AA00472BF5 /* GymondoiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymondoiOSTests.swift; sourceTree = "<group>"; };
 		41D899D62A940A9200291E5F /* Gymondo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gymondo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		41D899D92A940A9200291E5F /* Gymondo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Gymondo.h; sourceTree = "<group>"; };
 		41D899DE2A940A9200291E5F /* GymondoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GymondoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D899EE2A940AF700291E5F /* Exercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercises.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,6 +83,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				415447D32A96ABEF00472BF5 /* Gymondo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		415447DE2A97813900472BF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		415447E52A97813900472BF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				415447E92A97813900472BF5 /* GymondoiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,14 +166,32 @@
 			path = GymondoAPIEndToEndTests;
 			sourceTree = "<group>";
 		};
+		415447E22A97813900472BF5 /* GymondoiOS */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GymondoiOS;
+			sourceTree = "<group>";
+		};
+		415447EC2A97813900472BF5 /* GymondoiOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				415447F82A9782AA00472BF5 /* GymondoiOSTests.swift */,
+			);
+			path = GymondoiOSTests;
+			sourceTree = "<group>";
+		};
 		41D899CC2A940A9200291E5F = {
 			isa = PBXGroup;
 			children = (
+				415447F72A97820D00472BF5 /* GymondoiOS.xctestplan */,
 				415447DB2A96B61500472BF5 /* GymondoAPIEndToEndTests.xctestplan */,
 				415447AE2A94EF0900472BF5 /* CI_macOS.xctestplan */,
 				41D899D82A940A9200291E5F /* Gymondo */,
 				41D899E22A940A9200291E5F /* GymondoTests */,
 				415447D02A96ABEF00472BF5 /* GymondoAPIEndToEndTests */,
+				415447E22A97813900472BF5 /* GymondoiOS */,
+				415447EC2A97813900472BF5 /* GymondoiOSTests */,
 				41D899D72A940A9200291E5F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -158,6 +202,8 @@
 				41D899D62A940A9200291E5F /* Gymondo.framework */,
 				41D899DE2A940A9200291E5F /* GymondoTests.xctest */,
 				415447CF2A96ABEF00472BF5 /* GymondoAPIEndToEndTests.xctest */,
+				415447E12A97813900472BF5 /* GymondoiOS.framework */,
+				415447E82A97813900472BF5 /* GymondoiOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -169,7 +215,6 @@
 				415447BE2A955FAB00472BF5 /* ExerciseService */,
 				415447AF2A94F0F400472BF5 /* Networking */,
 				41D899F02A940B0000291E5F /* Models */,
-				41D899D92A940A9200291E5F /* Gymondo.h */,
 			);
 			path = Gymondo;
 			sourceTree = "<group>";
@@ -194,11 +239,17 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		415447DC2A97813900472BF5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		41D899D12A940A9200291E5F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41D899E52A940A9200291E5F /* Gymondo.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +272,42 @@
 			name = GymondoAPIEndToEndTests;
 			productName = GymondoAPIEndToEndTests;
 			productReference = 415447CF2A96ABEF00472BF5 /* GymondoAPIEndToEndTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		415447E02A97813900472BF5 /* GymondoiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 415447F02A97813900472BF5 /* Build configuration list for PBXNativeTarget "GymondoiOS" */;
+			buildPhases = (
+				415447DC2A97813900472BF5 /* Headers */,
+				415447DD2A97813900472BF5 /* Sources */,
+				415447DE2A97813900472BF5 /* Frameworks */,
+				415447DF2A97813900472BF5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GymondoiOS;
+			productName = GymondoiOS;
+			productReference = 415447E12A97813900472BF5 /* GymondoiOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		415447E72A97813900472BF5 /* GymondoiOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 415447F32A97813900472BF5 /* Build configuration list for PBXNativeTarget "GymondoiOSTests" */;
+			buildPhases = (
+				415447E42A97813900472BF5 /* Sources */,
+				415447E52A97813900472BF5 /* Frameworks */,
+				415447E62A97813900472BF5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				415447EB2A97813900472BF5 /* PBXTargetDependency */,
+			);
+			name = GymondoiOSTests;
+			productName = GymondoiOSTests;
+			productReference = 415447E82A97813900472BF5 /* GymondoiOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		41D899D52A940A9200291E5F /* Gymondo */ = {
@@ -273,6 +360,13 @@
 					415447CE2A96ABEF00472BF5 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
+					415447E02A97813900472BF5 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					415447E72A97813900472BF5 = {
+						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
+					};
 					41D899D52A940A9200291E5F = {
 						CreatedOnToolsVersion = 14.3.1;
 						LastSwiftMigration = 1430;
@@ -299,12 +393,28 @@
 				41D899D52A940A9200291E5F /* Gymondo */,
 				41D899DD2A940A9200291E5F /* GymondoTests */,
 				415447CE2A96ABEF00472BF5 /* GymondoAPIEndToEndTests */,
+				415447E02A97813900472BF5 /* GymondoiOS */,
+				415447E72A97813900472BF5 /* GymondoiOSTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		415447CD2A96ABEF00472BF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		415447DF2A97813900472BF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		415447E62A97813900472BF5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -358,6 +468,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		415447DD2A97813900472BF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		415447E42A97813900472BF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				415447F92A9782AA00472BF5 /* GymondoiOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		41D899D22A940A9200291E5F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -392,6 +517,11 @@
 			isa = PBXTargetDependency;
 			target = 41D899D52A940A9200291E5F /* Gymondo */;
 			targetProxy = 415447D42A96ABEF00472BF5 /* PBXContainerItemProxy */;
+		};
+		415447EB2A97813900472BF5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 415447E02A97813900472BF5 /* GymondoiOS */;
+			targetProxy = 415447EA2A97813900472BF5 /* PBXContainerItemProxy */;
 		};
 		41D899E12A940A9200291E5F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -428,6 +558,109 @@
 				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		415447F12A97813900472BF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mag.GymondoiOS;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		415447F22A97813900472BF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mag.GymondoiOS;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		415447F42A97813900472BF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mag.GymondoiOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		415447F52A97813900472BF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mag.GymondoiOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -658,6 +891,24 @@
 			buildConfigurations = (
 				415447D72A96ABEF00472BF5 /* Debug */,
 				415447D82A96ABEF00472BF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		415447F02A97813900472BF5 /* Build configuration list for PBXNativeTarget "GymondoiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				415447F12A97813900472BF5 /* Debug */,
+				415447F22A97813900472BF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		415447F32A97813900472BF5 /* Build configuration list for PBXNativeTarget "GymondoiOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				415447F42A97813900472BF5 /* Debug */,
+				415447F52A97813900472BF5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
