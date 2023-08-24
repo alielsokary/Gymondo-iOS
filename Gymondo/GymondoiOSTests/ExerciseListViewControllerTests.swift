@@ -21,11 +21,11 @@ final class ExerciseListViewController: UITableViewController {
         super.viewDidLoad()
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        refreshControl?.beginRefreshing()
         refresh()
     }
 
     @objc private func refresh() {
+        refreshControl?.beginRefreshing()
         viewModel?.start { [weak self] in
             self?.refreshControl?.endRefreshing()
         }
@@ -35,64 +35,34 @@ final class ExerciseListViewController: UITableViewController {
 
 final class ExerciseListViewControllerTests: XCTestCase {
 
-    func test_init_doesNotLoadExerciseList() {
-        let (_, viewModel) = makeSUT()
+    func test_loadExerciseAction_requestsFeedFromViewModel() {
+        let (sut, viewModel) = makeSUT()
+        XCTAssertEqual(viewModel.loadCallCount, 0, "Expected no loading requests before view is loaded")
 
-        XCTAssertEqual(viewModel.loadCallCount, 0)
+        sut.loadViewIfNeeded()
+        XCTAssertEqual(viewModel.loadCallCount, 1, "Expected a loading request once view is loaded")
+
+        sut.simulateUserInitiatedExerciseLoad()
+        XCTAssertEqual(viewModel.loadCallCount, 2, "Expected another loading request once user initiates a reload")
+
+        sut.simulateUserInitiatedExerciseLoad()
+        XCTAssertEqual(viewModel.loadCallCount, 3, "Expected another loading request once user initiates another reload")
     }
 
-    func test_viewDidLoad_loadsExerciseList() {
+    func test_loadingFeedIndicator_isVisibleWhileLoadingtheExerciseFeed() {
         let (sut, viewModel) = makeSUT()
 
         sut.loadViewIfNeeded()
+        XCTAssertTrue(sut.isShowingLoadingIndicator, "Expected loading indicator once view is loaded")
 
-        XCTAssertEqual(viewModel.loadCallCount, 1)
-    }
-
-    func test_userInitiatedExerciseLoad_loadsExercisees() {
-        let (sut, viewModel) = makeSUT()
-
-        sut.loadViewIfNeeded()
+        viewModel.completeFeedLoading(at: 0)
+        XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once loading is completed")
 
         sut.simulateUserInitiatedExerciseLoad()
-        XCTAssertEqual(viewModel.loadCallCount, 2)
+        XCTAssertTrue(sut.isShowingLoadingIndicator, "Expected loading indicator once user initiates a reload")
 
-        sut.simulateUserInitiatedExerciseLoad()
-        XCTAssertEqual(viewModel.loadCallCount, 3)
-    }
-
-    func test_viewDidLoad_showsLoadingIndicator() {
-        let (sut, _) = makeSUT()
-
-        sut.loadViewIfNeeded()
-
-        XCTAssertTrue(sut.isShowingLoadingIndicator)
-    }
-
-    func test_viewDidLoad_hidesLoadingIndicatorOnLoaderCompletion() {
-        let (sut, viewModel) = makeSUT()
-
-        sut.loadViewIfNeeded()
-        viewModel.completeFeedLoading()
-
-        XCTAssertFalse(sut.isShowingLoadingIndicator)
-    }
-
-    func test_userInitiatedExerciseLoad_showsLoadingIndicator() {
-        let (sut, _) = makeSUT()
-
-        sut.simulateUserInitiatedExerciseLoad()
-
-        XCTAssertTrue(sut.isShowingLoadingIndicator)
-    }
-
-    func test_userInitiatedExerciseLoad_hidesLoadingIndicatorOnLoaderCompletion() {
-        let (sut, viewModel) = makeSUT()
-
-        sut.simulateUserInitiatedExerciseLoad()
-        viewModel.completeFeedLoading()
-
-        XCTAssertFalse(sut.isShowingLoadingIndicator)
+        viewModel.completeFeedLoading(at: 1)
+        XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once user initiated loading is completed")
     }
 
     // MARK: - Helpers
@@ -116,8 +86,8 @@ final class ExerciseListViewControllerTests: XCTestCase {
             completions.append(completion)
         }
 
-        func completeFeedLoading() {
-            completions[0]()
+        func completeFeedLoading(at index: Int) {
+            completions[index]()
         }
     }
 }
