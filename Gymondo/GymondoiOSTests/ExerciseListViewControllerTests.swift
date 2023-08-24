@@ -21,6 +21,7 @@ final class ExerciseListViewController: UITableViewController {
         super.viewDidLoad()
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        refreshControl?.beginRefreshing()
         viewModel?.start()
     }
 
@@ -56,6 +57,14 @@ final class ExerciseListViewControllerTests: XCTestCase {
 
         sut.refreshControl?.simulatePullToRefresh()
         XCTAssertEqual(viewModel.loadCallCount, 3)
+    }
+
+    func test_viewDidLoad_showsLoadingIndicator() {
+        let (sut, _) = makeSUT()
+
+        sut.loadViewIfNeeded()
+
+        XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
     }
 
     // MARK: - Helpers
