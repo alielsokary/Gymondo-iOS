@@ -27,10 +27,10 @@ final class GymondoAPIEndToEndTests: XCTestCase {
                 }
         } receiveValue: { [weak self] value in
             guard let self = self else { return }
-            value.results?.enumerated().forEach({ exerciseItem in
-                XCTAssertEqual(exerciseItem.element.id, self.id(at: exerciseItem.offset))
-                XCTAssertEqual(exerciseItem.element.name, self.name(at: exerciseItem.offset))
-            })
+            XCTAssertEqual(value.results?[0].id, self.id(at: 0))
+            XCTAssertEqual(value.results?[0].name, self.name(at: 0))
+            XCTAssertEqual(value.results?[1].id, self.id(at: 1))
+            XCTAssertEqual(value.results?[1].name, self.name(at: 1))
         }
         wait(for: [exp], timeout: 10.0)
     }

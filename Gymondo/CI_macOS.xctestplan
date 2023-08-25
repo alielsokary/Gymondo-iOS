@@ -39,13 +39,6 @@
         "identifier" : "415447CE2A96ABEF00472BF5",
         "name" : "GymondoAPIEndToEndTests"
       }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:Gymondo.xcodeproj",
-        "identifier" : "415447E72A97813900472BF5",
-        "name" : "GymondoiOSTests"
-      }
     }
   ],
   "version" : 1
