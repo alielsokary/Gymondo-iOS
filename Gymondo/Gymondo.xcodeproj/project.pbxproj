@@ -35,6 +35,7 @@
 		417FBE222A98935200977B2E /* ExerciseItemCell+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417FBE212A98935200977B2E /* ExerciseItemCell+TestHelpers.swift */; };
 		41D899DF2A940A9200291E5F /* Gymondo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D899D62A940A9200291E5F /* Gymondo.framework */; };
 		41D899EF2A940AF700291E5F /* Exercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D899EE2A940AF700291E5F /* Exercises.swift */; };
+		41DB746F2A98AAB6009A6055 /* Exercises.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41DB746E2A98AAB6009A6055 /* Exercises.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		41D899D62A940A9200291E5F /* Gymondo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gymondo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D899DE2A940A9200291E5F /* GymondoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GymondoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D899EE2A940AF700291E5F /* Exercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercises.swift; sourceTree = "<group>"; };
+		41DB746E2A98AAB6009A6055 /* Exercises.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Exercises.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,9 +210,7 @@
 		415447E22A97813900472BF5 /* GymondoiOS */ = {
 			isa = PBXGroup;
 			children = (
-				415448042A97B31200472BF5 /* ExerciseListViewController.swift */,
-				415448062A9887D500472BF5 /* ExerciseItemCell.swift */,
-				415448072A9887D500472BF5 /* ExerciseItemCell.xib */,
+				41DB746A2A98AA13009A6055 /* Scenes */,
 			);
 			path = GymondoiOS;
 			sourceTree = "<group>";
@@ -304,6 +304,41 @@
 				41D899EE2A940AF700291E5F /* Exercises.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		41DB746A2A98AA13009A6055 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				41DB746B2A98AA1A009A6055 /* ExerciseList */,
+				41DB746E2A98AAB6009A6055 /* Exercises.storyboard */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		41DB746B2A98AA1A009A6055 /* ExerciseList */ = {
+			isa = PBXGroup;
+			children = (
+				41DB746C2A98AA30009A6055 /* View */,
+			);
+			path = ExerciseList;
+			sourceTree = "<group>";
+		};
+		41DB746C2A98AA30009A6055 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				41DB746D2A98AA39009A6055 /* Cell */,
+				415448042A97B31200472BF5 /* ExerciseListViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		41DB746D2A98AA39009A6055 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				415448062A9887D500472BF5 /* ExerciseItemCell.swift */,
+				415448072A9887D500472BF5 /* ExerciseItemCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -484,6 +519,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41DB746F2A98AAB6009A6055 /* Exercises.storyboard in Resources */,
 				415448092A9887D500472BF5 /* ExerciseItemCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -662,7 +698,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -696,7 +732,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -726,7 +762,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mag.GymondoiOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -748,7 +784,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mag.GymondoiOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -811,6 +847,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -868,6 +905,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
