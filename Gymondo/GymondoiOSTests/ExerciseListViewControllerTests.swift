@@ -103,18 +103,10 @@ final class ExerciseListViewControllerTests: XCTestCase {
 
     class ViewModelSpy: ExerciseListViewModelLogic {
 
-        let item0 = ExerciseItem(id: 1,
-                                 uuid: "",
-                                 name: "Item",
-                                 exerciseBase: 1,
-                                 description: nil,
-                                 created: nil,
-                                 category: nil,
-                                 language: nil,
-                                 variations: nil)
+        let item0 = ExerciseViewModel(name: "Item", imageItem: nil, variations: nil, exerciseBase: 1)
 
-        var exerciseList: [Gymondo.ExerciseItem] {
-            return [item0]
+        var exercicesViewModel: [Gymondo.ExerciseViewModel] {
+            [item0]
         }
 
         var title: String {
