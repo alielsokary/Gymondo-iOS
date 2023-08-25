@@ -1,21 +1,16 @@
 {
   "configurations" : [
     {
-      "id" : "D4CE1581-BEBD-4A4F-B0A5-915EF3FCA567",
+      "id" : "9DFB47BA-CA21-4FF0-A5A1-89759D9D633C",
       "name" : "Test Scheme Action",
       "options" : {
-        "testExecutionOrdering" : "random"
+
       }
     }
   ],
   "defaultOptions" : {
     "codeCoverage" : {
       "targets" : [
-        {
-          "containerPath" : "container:Gymondo.xcodeproj",
-          "identifier" : "41D899D52A940A9200291E5F",
-          "name" : "Gymondo"
-        },
         {
           "containerPath" : "container:Gymondo.xcodeproj",
           "identifier" : "415447E02A97813900472BF5",
@@ -29,15 +24,8 @@
     {
       "target" : {
         "containerPath" : "container:Gymondo.xcodeproj",
-        "identifier" : "41D899DD2A940A9200291E5F",
-        "name" : "GymondoTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:Gymondo.xcodeproj",
-        "identifier" : "415447CE2A96ABEF00472BF5",
-        "name" : "GymondoAPIEndToEndTests"
+        "identifier" : "415447E72A97813900472BF5",
+        "name" : "GymondoiOSTests"
       }
     }
   ],
