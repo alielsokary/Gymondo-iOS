@@ -103,9 +103,9 @@ final class ExerciseListViewControllerTests: XCTestCase {
 
     class ViewModelSpy: ExerciseListViewModelLogic {
 
-        let item0 = ExerciseViewModel(name: "Item", imageItem: nil, variations: nil, exerciseBase: 1)
+        let item0 = ExerciseItemViewModel(name: "Item", imageItem: nil, variations: nil, exerciseBase: 1)
 
-        var exercicesViewModel: [Gymondo.ExerciseViewModel] {
+        var exercicesViewModel: [Gymondo.ExerciseItemViewModel] {
             [item0]
         }
 

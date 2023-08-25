@@ -41,6 +41,7 @@
 		41CD32BB2A98F5AC003BFCC8 /* APIParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD32BA2A98F5AC003BFCC8 /* APIParameters.swift */; };
 		41CD32BD2A98F641003BFCC8 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD32BC2A98F641003BFCC8 /* Encodable+Extension.swift */; };
 		41CD32C02A990623003BFCC8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 41CD32BF2A990623003BFCC8 /* Kingfisher */; };
+		41CD32C32A99113C003BFCC8 /* ExerciseItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD32C22A99113C003BFCC8 /* ExerciseItemViewModel.swift */; };
 		41D899DF2A940A9200291E5F /* Gymondo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D899D62A940A9200291E5F /* Gymondo.framework */; };
 		41D899EF2A940AF700291E5F /* Exercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D899EE2A940AF700291E5F /* Exercises.swift */; };
 		41DB746F2A98AAB6009A6055 /* Exercises.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41DB746E2A98AAB6009A6055 /* Exercises.storyboard */; };
@@ -126,6 +127,7 @@
 		41CD32B82A98F442003BFCC8 /* ExerciseImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseImages.swift; sourceTree = "<group>"; };
 		41CD32BA2A98F5AC003BFCC8 /* APIParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIParameters.swift; sourceTree = "<group>"; };
 		41CD32BC2A98F641003BFCC8 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
+		41CD32C22A99113C003BFCC8 /* ExerciseItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseItemViewModel.swift; sourceTree = "<group>"; };
 		41D899D62A940A9200291E5F /* Gymondo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gymondo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D899DE2A940A9200291E5F /* GymondoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GymondoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D899EE2A940AF700291E5F /* Exercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercises.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				415447FB2A978D1600472BF5 /* ExerciseListViewModel.swift */,
+				41CD32C22A99113C003BFCC8 /* ExerciseItemViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -661,6 +664,7 @@
 				415447B92A9508FD00472BF5 /* HTTPClient.swift in Sources */,
 				415447C02A955FD800472BF5 /* ExerciseService.swift in Sources */,
 				41D899EF2A940AF700291E5F /* Exercises.swift in Sources */,
+				41CD32C32A99113C003BFCC8 /* ExerciseItemViewModel.swift in Sources */,
 				415447DA2A96AF6300472BF5 /* ExercisesRouter.swift in Sources */,
 				41CD32B92A98F442003BFCC8 /* ExerciseImages.swift in Sources */,
 				415447B72A94F2D800472BF5 /* APIClient.swift in Sources */,

@@ -6,19 +6,28 @@
 //
 
 import UIKit
+import Kingfisher
+import Gymondo
 
 class ExerciseItemCell: UITableViewCell {
 
     @IBOutlet weak var exerciseImageView: UIImageView!
     @IBOutlet weak var exerciseNameLabel: UILabel!
 
+    var viewModel: ExerciseItemViewModel! {
+        didSet {
+            exerciseNameLabel.text = viewModel.name
+            exerciseImageView.kf.setImage(with: URL(string: (viewModel.imageItem?.image).unwrapped))
+        }
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
-
         setupUI()
     }
 
     func setupUI() {
+        self.selectionStyle = .none
         exerciseImageView.layer.cornerRadius = 8.0
         exerciseImageView.clipsToBounds = true
 

@@ -7,26 +7,12 @@
 
 import Foundation
 
-public class ExerciseViewModel {
-    public let name: String
-    public var imageItem: ImageItem?
-    public let variations: [Int]?
-    public let exerciseBase: Int?
-
-    public init(name: String, imageItem: ImageItem?, variations: [Int]?, exerciseBase: Int?) {
-        self.name = name
-        self.imageItem = imageItem
-        self.variations = variations
-        self.exerciseBase = exerciseBase
-    }
-}
-
 public protocol ExerciseListViewModelLogic {
     typealias Result = Swift.Result<[ExerciseItem], Error>
 
     var title: String { get }
 
-    var exercicesViewModel: [ExerciseViewModel] { get }
+    var exercicesViewModel: [ExerciseItemViewModel] { get }
 
     func start(completion: @escaping (Result) -> Void)
 }
@@ -38,11 +24,11 @@ public class ExerciseListViewModel: ExerciseListViewModelLogic {
         self.apiService = apiService
     }
 
-    public var exercicesViewModel: [ExerciseViewModel] {
+    public var exercicesViewModel: [ExerciseItemViewModel] {
         return _exercicesViewModel
     }
 
-    var _exercicesViewModel: [ExerciseViewModel] = []
+    var _exercicesViewModel: [ExerciseItemViewModel] = []
 
     public var title: String {
         return "Gymondo"
@@ -62,7 +48,7 @@ public class ExerciseListViewModel: ExerciseListViewModelLogic {
                 let variations = (exerciseItem.variations).unwrapped
                 let exerciseBase = (exerciseItem.exerciseBase).unwrapped
 
-                let exerciceVM = ExerciseViewModel(name: exerciseName, imageItem: nil, variations: variations, exerciseBase: exerciseBase)
+                let exerciceVM = ExerciseItemViewModel(name: exerciseName, imageItem: nil, variations: variations, exerciseBase: exerciseBase)
                 self?._exercicesViewModel.append(exerciceVM)
                 self?.getImages()
             })

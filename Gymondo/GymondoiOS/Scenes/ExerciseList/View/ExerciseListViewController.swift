@@ -93,13 +93,7 @@ extension ExerciseListViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExerciseItemCell", for: indexPath) as? ExerciseItemCell else {
             fatalError("Cell do not exists")
         }
-        let cellModel = viewModel.exercicesViewModel[indexPath.row]
-
-        cell.exerciseNameLabel.text = cellModel.name
-        let imageItem = (cellModel.imageItem?.image).unwrapped
-
-        cell.exerciseImageView.kf.setImage(with: URL(string: imageItem))
-        cell.selectionStyle = .none
+        cell.viewModel = viewModel.exercicesViewModel[indexPath.row]
         return cell
     }
 }
