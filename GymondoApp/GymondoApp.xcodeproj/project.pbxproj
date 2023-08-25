@@ -14,6 +14,10 @@
 		4189D8602A98A41500EE1180 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4189D85F2A98A41500EE1180 /* Assets.xcassets */; };
 		4189D8632A98A41500EE1180 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4189D8612A98A41500EE1180 /* LaunchScreen.storyboard */; };
 		4189D86E2A98A41500EE1180 /* GymondoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4189D86D2A98A41500EE1180 /* GymondoAppTests.swift */; };
+		4189D8892A98A55F00EE1180 /* Gymondo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4189D8872A98A55F00EE1180 /* Gymondo.framework */; };
+		4189D88A2A98A55F00EE1180 /* Gymondo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4189D8872A98A55F00EE1180 /* Gymondo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4189D88B2A98A55F00EE1180 /* GymondoiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4189D8882A98A55F00EE1180 /* GymondoiOS.framework */; };
+		4189D88C2A98A55F00EE1180 /* GymondoiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4189D8882A98A55F00EE1180 /* GymondoiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +30,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4189D88D2A98A55F00EE1180 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4189D88C2A98A55F00EE1180 /* GymondoiOS.framework in Embed Frameworks */,
+				4189D88A2A98A55F00EE1180 /* Gymondo.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		4189D8532A98A41400EE1180 /* GymondoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GymondoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4189D8562A98A41400EE1180 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +56,8 @@
 		4189D8642A98A41500EE1180 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4189D8692A98A41500EE1180 /* GymondoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GymondoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4189D86D2A98A41500EE1180 /* GymondoAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymondoAppTests.swift; sourceTree = "<group>"; };
+		4189D8872A98A55F00EE1180 /* Gymondo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Gymondo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4189D8882A98A55F00EE1180 /* GymondoiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GymondoiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4189D88B2A98A55F00EE1180 /* GymondoiOS.framework in Frameworks */,
+				4189D8892A98A55F00EE1180 /* Gymondo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +86,7 @@
 				4189D8552A98A41400EE1180 /* GymondoApp */,
 				4189D86C2A98A41500EE1180 /* GymondoAppTests */,
 				4189D8542A98A41400EE1180 /* Products */,
+				4189D8862A98A55F00EE1180 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +121,15 @@
 			path = GymondoAppTests;
 			sourceTree = "<group>";
 		};
+		4189D8862A98A55F00EE1180 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4189D8872A98A55F00EE1180 /* Gymondo.framework */,
+				4189D8882A98A55F00EE1180 /* GymondoiOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -107,6 +140,7 @@
 				4189D84F2A98A41400EE1180 /* Sources */,
 				4189D8502A98A41400EE1180 /* Frameworks */,
 				4189D8512A98A41400EE1180 /* Resources */,
+				4189D88D2A98A55F00EE1180 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
