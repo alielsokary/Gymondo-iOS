@@ -12,7 +12,7 @@ public protocol ExerciseListViewModelLogic {
 
     var title: String { get }
 
-    var exerciseList: [ExerciseItem] { get }
+    var exercicesViewModel: [ExerciseItemViewModel] { get }
 
     func start(completion: @escaping (Result) -> Void)
 }
@@ -24,11 +24,11 @@ public class ExerciseListViewModel: ExerciseListViewModelLogic {
         self.apiService = apiService
     }
 
-    private var _exerciseList: Exercises?
-
-    public var exerciseList: [ExerciseItem] {
-        return (_exerciseList?.results).unwrapped
+    public var exercicesViewModel: [ExerciseItemViewModel] {
+        return _exercicesViewModel
     }
+
+    var _exercicesViewModel: [ExerciseItemViewModel] = []
 
     public var title: String {
         return "Gymondo"
@@ -43,10 +43,32 @@ public class ExerciseListViewModel: ExerciseListViewModelLogic {
                 print(error)
             }
         } receiveValue: { [weak self] value in
-            self?._exerciseList = value
+            value.results?.forEach({ exerciseItem in
+                let exerciseName = (exerciseItem.name).unwrapped
+                let variations = (exerciseItem.variations).unwrapped
+                let exerciseBase = (exerciseItem.exerciseBase).unwrapped
+
+                let exerciceVM = ExerciseItemViewModel(name: exerciseName, imageItem: nil, variations: variations, exerciseBase: exerciseBase)
+                self?._exercicesViewModel.append(exerciceVM)
+                self?.getImages()
+            })
             completion(.success(value.results!))
         }
 
     }
 
+    func getImages() {
+        _exercicesViewModel.enumerated().forEach({ index, exerciseItem in
+            _ = apiService.dispatch(ExercisesRouter.GetImages(queryParams: APIParameters.Exercise(exercise_base: exerciseItem.exerciseBase))).sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished: break
+                case let .failure(error):
+                    print(error)
+                }
+            }, receiveValue: { [weak self] value in
+                let exerciseImage = value.results?.first
+                self?._exercicesViewModel[index].imageItem = exerciseImage
+            })
+        })
+    }
 }

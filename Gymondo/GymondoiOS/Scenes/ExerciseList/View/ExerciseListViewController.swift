@@ -7,6 +7,7 @@
 
 import UIKit
 import Gymondo
+import Kingfisher
 
 public final class ExerciseListViewController: UITableViewController {
 
@@ -85,17 +86,14 @@ private extension ExerciseListViewController {
 
 extension ExerciseListViewController {
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.exerciseList.count
+        viewModel.exercicesViewModel.count
     }
 
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExerciseItemCell", for: indexPath) as? ExerciseItemCell else {
             fatalError("Cell do not exists")
         }
-        let cellModel: ExerciseItem = viewModel.exerciseList[indexPath.row]
-
-        cell.exerciseNameLabel.text = cellModel.name
-        cell.selectionStyle = .none
+        cell.viewModel = viewModel.exercicesViewModel[indexPath.row]
         return cell
     }
 }

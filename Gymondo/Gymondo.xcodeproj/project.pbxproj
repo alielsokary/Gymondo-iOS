@@ -37,6 +37,11 @@
 		417FBE1E2A9892CE00977B2E /* ExerciseListViewController+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417FBE1D2A9892CE00977B2E /* ExerciseListViewController+TestHelpers.swift */; };
 		417FBE202A98932500977B2E /* UIRefreshControl+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417FBE1F2A98932500977B2E /* UIRefreshControl+TestHelpers.swift */; };
 		417FBE222A98935200977B2E /* ExerciseItemCell+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417FBE212A98935200977B2E /* ExerciseItemCell+TestHelpers.swift */; };
+		41CD32B92A98F442003BFCC8 /* ExerciseImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD32B82A98F442003BFCC8 /* ExerciseImages.swift */; };
+		41CD32BB2A98F5AC003BFCC8 /* APIParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD32BA2A98F5AC003BFCC8 /* APIParameters.swift */; };
+		41CD32BD2A98F641003BFCC8 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD32BC2A98F641003BFCC8 /* Encodable+Extension.swift */; };
+		41CD32C02A990623003BFCC8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 41CD32BF2A990623003BFCC8 /* Kingfisher */; };
+		41CD32C32A99113C003BFCC8 /* ExerciseItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD32C22A99113C003BFCC8 /* ExerciseItemViewModel.swift */; };
 		41D899DF2A940A9200291E5F /* Gymondo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D899D62A940A9200291E5F /* Gymondo.framework */; };
 		41D899EF2A940AF700291E5F /* Exercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D899EE2A940AF700291E5F /* Exercises.swift */; };
 		41DB746F2A98AAB6009A6055 /* Exercises.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41DB746E2A98AAB6009A6055 /* Exercises.storyboard */; };
@@ -119,6 +124,10 @@
 		417FBE1D2A9892CE00977B2E /* ExerciseListViewController+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseListViewController+TestHelpers.swift"; sourceTree = "<group>"; };
 		417FBE1F2A98932500977B2E /* UIRefreshControl+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+TestHelpers.swift"; sourceTree = "<group>"; };
 		417FBE212A98935200977B2E /* ExerciseItemCell+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseItemCell+TestHelpers.swift"; sourceTree = "<group>"; };
+		41CD32B82A98F442003BFCC8 /* ExerciseImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseImages.swift; sourceTree = "<group>"; };
+		41CD32BA2A98F5AC003BFCC8 /* APIParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIParameters.swift; sourceTree = "<group>"; };
+		41CD32BC2A98F641003BFCC8 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
+		41CD32C22A99113C003BFCC8 /* ExerciseItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseItemViewModel.swift; sourceTree = "<group>"; };
 		41D899D62A940A9200291E5F /* Gymondo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gymondo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D899DE2A940A9200291E5F /* GymondoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GymondoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D899EE2A940AF700291E5F /* Exercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercises.swift; sourceTree = "<group>"; };
@@ -154,6 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41CD32C02A990623003BFCC8 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +205,8 @@
 				415447B82A9508FD00472BF5 /* HTTPClient.swift */,
 				415447B62A94F2D800472BF5 /* APIClient.swift */,
 				415447D92A96AF6300472BF5 /* ExercisesRouter.swift */,
+				41CD32BA2A98F5AC003BFCC8 /* APIParameters.swift */,
+				41CD32BC2A98F641003BFCC8 /* Encodable+Extension.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -238,6 +250,7 @@
 			children = (
 				412D9A042A98C2A3008FE272 /* Coordinator */,
 				41DB746A2A98AA13009A6055 /* Scenes */,
+				41CD32C42A992212003BFCC8 /* Resources */,
 				412D9A112A98DB16008FE272 /* Extensions */,
 			);
 			path = GymondoiOS;
@@ -256,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				415447FB2A978D1600472BF5 /* ExerciseListViewModel.swift */,
+				41CD32C22A99113C003BFCC8 /* ExerciseItemViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -275,6 +289,13 @@
 				417FBE212A98935200977B2E /* ExerciseItemCell+TestHelpers.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		41CD32C42A992212003BFCC8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		41D899CC2A940A9200291E5F = {
@@ -330,6 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				41D899EE2A940AF700291E5F /* Exercises.swift */,
+				41CD32B82A98F442003BFCC8 /* ExerciseImages.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -460,6 +482,9 @@
 			dependencies = (
 			);
 			name = Gymondo;
+			packageProductDependencies = (
+				41CD32BF2A990623003BFCC8 /* Kingfisher */,
+			);
 			productName = Gymondo;
 			productReference = 41D899D62A940A9200291E5F /* Gymondo.framework */;
 			productType = "com.apple.product-type.framework";
@@ -522,6 +547,9 @@
 				Base,
 			);
 			mainGroup = 41D899CC2A940A9200291E5F;
+			packageReferences = (
+				41CD32BE2A990623003BFCC8 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 41D899D72A940A9200291E5F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -635,14 +663,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41CD32BB2A98F5AC003BFCC8 /* APIParameters.swift in Sources */,
 				415447FC2A978D1600472BF5 /* ExerciseListViewModel.swift in Sources */,
 				415447B52A94F22400472BF5 /* HTTPMethod.swift in Sources */,
 				415447C82A969E2A00472BF5 /* Optional+Extension.swift in Sources */,
+				41CD32BD2A98F641003BFCC8 /* Encodable+Extension.swift in Sources */,
 				415447B12A94F12100472BF5 /* APIConstants.swift in Sources */,
 				415447B92A9508FD00472BF5 /* HTTPClient.swift in Sources */,
 				415447C02A955FD800472BF5 /* ExerciseService.swift in Sources */,
 				41D899EF2A940AF700291E5F /* Exercises.swift in Sources */,
+				41CD32C32A99113C003BFCC8 /* ExerciseItemViewModel.swift in Sources */,
 				415447DA2A96AF6300472BF5 /* ExercisesRouter.swift in Sources */,
+				41CD32B92A98F442003BFCC8 /* ExerciseImages.swift in Sources */,
 				415447B72A94F2D800472BF5 /* APIClient.swift in Sources */,
 				415447B32A94F1AE00472BF5 /* EndpointRouter.swift in Sources */,
 			);
@@ -1107,6 +1139,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		41CD32BE2A990623003BFCC8 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		41CD32BF2A990623003BFCC8 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41CD32BE2A990623003BFCC8 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 41D899CD2A940A9200291E5F /* Project object */;
 }
