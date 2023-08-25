@@ -77,10 +77,28 @@ final class ExerciseListViewControllerTests: XCTestCase {
     // MARK: - Helpers
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: ExerciseListViewController, viewModel: ViewModelSpy) {
         let viewModel = ViewModelSpy()
-        let sut = ExerciseListViewController(viewModel: viewModel)
+        let mockNavigation = MockNavigation()
+        let mockCoordinator = MockCoordinator(navigationController: mockNavigation)
+
+        let sut = ExerciseListViewController(coder: mockCoder(), coordinator: mockCoordinator, viewModel: viewModel)!
         trackForMemoryLeaks(viewModel, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, viewModel)
+    }
+
+    func mockCoder() -> NSKeyedUnarchiver {
+        let object = UIView()
+        let data = try! NSKeyedArchiver.archivedData(withRootObject: object, requiringSecureCoding: false)
+        let coder = try! NSKeyedUnarchiver(forReadingFrom: data)
+        return coder
+    }
+
+    class MockCoordinator: MainCoordinator {
+
+    }
+
+    class MockNavigation: UINavigationController {
+
     }
 
     class ViewModelSpy: ExerciseListViewModelLogic {

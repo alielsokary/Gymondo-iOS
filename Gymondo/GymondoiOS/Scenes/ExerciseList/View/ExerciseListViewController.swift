@@ -9,11 +9,19 @@ import UIKit
 import Gymondo
 
 public final class ExerciseListViewController: UITableViewController {
+
+    private var coordinator: MainCoordinator?
     private var viewModel: (any ExerciseListViewModelLogic)?
     private var model = [ExerciseItem]()
-    convenience init(viewModel: any ExerciseListViewModelLogic) {
-        self.init()
+
+    public required init?(coder: NSCoder, coordinator: MainCoordinator?, viewModel: any ExerciseListViewModelLogic) {
+        self.coordinator = coordinator
         self.viewModel = viewModel
+        super.init(coder: coder)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     public override func viewDidLoad() {

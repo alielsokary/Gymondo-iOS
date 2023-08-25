@@ -15,11 +15,27 @@ public protocol ExerciseListViewModelLogic {
 
 public class ExerciseListViewModel: ExerciseListViewModelLogic {
 
+    private let apiService: ExerciseService!
+
+    public init(apiService: ExerciseService) {
+        self.apiService = apiService
+    }
+
     public var title: String {
         return "Gymondo"
     }
 
     public func start(completion: @escaping (ExerciseListViewModelLogic.Result) -> Void) {
+        _ = apiService.dispatch(ExercisesRouter.GetExercises())
+            .sink { completion in
+            switch completion {
+            case .finished: break
+            case let .failure(error):
+                print(error)
+            }
+        } receiveValue: { value in
+            print("valu", value)
+        }
 
     }
 
