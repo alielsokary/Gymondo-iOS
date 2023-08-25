@@ -12,6 +12,14 @@ import UIKit
 
 final class ExerciseListViewControllerTests: XCTestCase {
 
+    func test_feedView_hasTitle() {
+        let (sut, _) = makeSUT()
+
+        sut.loadViewIfNeeded()
+
+        XCTAssertEqual(sut.title, "Gymondo")
+    }
+
     func test_loadExerciseAction_requestsFeedFromViewModel() {
         let (sut, viewModel) = makeSUT()
         XCTAssertEqual(viewModel.loadCallCount, 0, "Expected no loading requests before view is loaded")
@@ -76,6 +84,9 @@ final class ExerciseListViewControllerTests: XCTestCase {
     }
 
     class ViewModelSpy: ExerciseListViewModelLogic {
+        var title: String {
+            return "Gymondo"
+        }
 
         private var completions = [(ExerciseListViewModelLogic.Result) -> Void]()
 

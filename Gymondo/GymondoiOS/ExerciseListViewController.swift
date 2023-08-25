@@ -18,6 +18,7 @@ final class ExerciseListViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = viewModel?.title
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         refresh()
