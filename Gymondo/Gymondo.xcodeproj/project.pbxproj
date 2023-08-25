@@ -42,6 +42,7 @@
 		41CD32BD2A98F641003BFCC8 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD32BC2A98F641003BFCC8 /* Encodable+Extension.swift */; };
 		41CD32C02A990623003BFCC8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 41CD32BF2A990623003BFCC8 /* Kingfisher */; };
 		41CD32C32A99113C003BFCC8 /* ExerciseItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD32C22A99113C003BFCC8 /* ExerciseItemViewModel.swift */; };
+		41CD32CB2A992A29003BFCC8 /* ExerciseDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD32CA2A992A29003BFCC8 /* ExerciseDetailsView.swift */; };
 		41D899DF2A940A9200291E5F /* Gymondo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D899D62A940A9200291E5F /* Gymondo.framework */; };
 		41D899EF2A940AF700291E5F /* Exercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D899EE2A940AF700291E5F /* Exercises.swift */; };
 		41DB746F2A98AAB6009A6055 /* Exercises.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41DB746E2A98AAB6009A6055 /* Exercises.storyboard */; };
@@ -128,6 +129,7 @@
 		41CD32BA2A98F5AC003BFCC8 /* APIParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIParameters.swift; sourceTree = "<group>"; };
 		41CD32BC2A98F641003BFCC8 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
 		41CD32C22A99113C003BFCC8 /* ExerciseItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseItemViewModel.swift; sourceTree = "<group>"; };
+		41CD32CA2A992A29003BFCC8 /* ExerciseDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailsView.swift; sourceTree = "<group>"; };
 		41D899D62A940A9200291E5F /* Gymondo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gymondo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D899DE2A940A9200291E5F /* GymondoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GymondoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D899EE2A940AF700291E5F /* Exercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercises.swift; sourceTree = "<group>"; };
@@ -298,6 +300,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		41CD32C92A992990003BFCC8 /* Exercise Details */ = {
+			isa = PBXGroup;
+			children = (
+				41F12B9D2A992C2B002F8C83 /* View */,
+			);
+			path = "Exercise Details";
+			sourceTree = "<group>";
+		};
 		41D899CC2A940A9200291E5F = {
 			isa = PBXGroup;
 			children = (
@@ -360,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				41DB746B2A98AA1A009A6055 /* ExerciseList */,
+				41CD32C92A992990003BFCC8 /* Exercise Details */,
 				41DB746E2A98AAB6009A6055 /* Exercises.storyboard */,
 			);
 			path = Scenes;
@@ -389,6 +400,14 @@
 				415448062A9887D500472BF5 /* ExerciseItemCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		41F12B9D2A992C2B002F8C83 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				41CD32CA2A992A29003BFCC8 /* ExerciseDetailsView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -644,6 +663,7 @@
 				415448052A97B31200472BF5 /* ExerciseListViewController.swift in Sources */,
 				412D9A132A98DB36008FE272 /* UIview+Extension.swift in Sources */,
 				412D9A062A98C2B0008FE272 /* Coordinator.swift in Sources */,
+				41CD32CB2A992A29003BFCC8 /* ExerciseDetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
