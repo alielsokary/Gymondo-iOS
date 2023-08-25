@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GymondoiOS
 
 class MainCoordinator: NSObject, Coordinator {
 
@@ -18,7 +19,10 @@ class MainCoordinator: NSObject, Coordinator {
 
     func start() {
         navigationController.delegate = self
-        let viewController = UIViewController()
+        let storyboard = Storyboard.Exercises.instance
+        let viewController = storyboard.instantiateViewController(identifier: ExerciseListViewController.storyboardID) { coder in
+            return ExerciseListViewController(coder: coder)
+        }
         navigationController.pushViewController(viewController, animated: false)
     }
 

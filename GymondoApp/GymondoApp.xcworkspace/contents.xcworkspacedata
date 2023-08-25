@@ -7,4 +7,7 @@
    <FileRef
       location = "container:GymondoApp.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:../GymondoApp.xctestplan">
+   </FileRef>
 </Workspace>

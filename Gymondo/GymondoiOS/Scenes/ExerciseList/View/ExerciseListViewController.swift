@@ -18,7 +18,8 @@ public final class ExerciseListViewController: UITableViewController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-        title = viewModel?.title
+        self.navigationItem.title = viewModel?.title
+        navigationController?.navigationBar.prefersLargeTitles = true
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         refresh()

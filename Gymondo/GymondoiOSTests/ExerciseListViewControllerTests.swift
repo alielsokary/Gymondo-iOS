@@ -12,12 +12,12 @@ import UIKit
 
 final class ExerciseListViewControllerTests: XCTestCase {
 
-    func test_feedView_hasTitle() {
+    func test_exerciseView_hasTitle() {
         let (sut, _) = makeSUT()
 
         sut.loadViewIfNeeded()
 
-        XCTAssertEqual(sut.title, "Gymondo")
+        XCTAssertEqual(sut.navigationItem.title, "Gymondo")
     }
 
     func test_loadExerciseAction_requestsFeedFromViewModel() {
