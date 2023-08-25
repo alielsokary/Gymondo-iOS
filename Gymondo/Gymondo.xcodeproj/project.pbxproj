@@ -161,6 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41CD32C02A990623003BFCC8 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +471,9 @@
 			dependencies = (
 			);
 			name = Gymondo;
+			packageProductDependencies = (
+				41CD32BF2A990623003BFCC8 /* Kingfisher */,
+			);
 			productName = Gymondo;
 			productReference = 41D899D62A940A9200291E5F /* Gymondo.framework */;
 			productType = "com.apple.product-type.framework";
@@ -532,6 +536,9 @@
 				Base,
 			);
 			mainGroup = 41D899CC2A940A9200291E5F;
+			packageReferences = (
+				41CD32BE2A990623003BFCC8 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 41D899D72A940A9200291E5F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1120,6 +1127,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		41CD32BE2A990623003BFCC8 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		41CD32BF2A990623003BFCC8 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41CD32BE2A990623003BFCC8 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 41D899CD2A940A9200291E5F /* Project object */;
 }
