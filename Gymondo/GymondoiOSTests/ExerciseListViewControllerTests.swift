@@ -42,6 +42,30 @@ final class ExerciseListViewControllerTests: XCTestCase {
         XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once user initiated loading is completed")
     }
 
+    func test_startCompletion_rendersSuccessfullyLoadedExercises() {
+        let item0 = makeItem(id: 1, uuid: "", name: "Item", exerciseBase: 1)
+        let item1 = makeItem(id: 2, uuid: "", name: "Item1", exerciseBase: 2)
+        let item2 = makeItem(id: 3, uuid: "", name: "Item2", exerciseBase: 3)
+        let item3 = makeItem(id: 4, uuid: "", name: "Item3", exerciseBase: 4)
+        let (sut, viewModel) = makeSUT()
+
+        sut.loadViewIfNeeded()
+
+        viewModel.completeFeedLoading(with: [item0], at: 0)
+        XCTAssertEqual(sut.numberOfRenderedExercisesViews(), 1)
+
+        let view = sut.exerciseItemView(at: 0) as? ExerciseItemCell
+        XCTAssertNotNil(view)
+        XCTAssertEqual(view?.nameText, item0.name)
+
+        sut.simulateUserInitiatedExerciseLoad()
+        viewModel.completeFeedLoading(with: [item0, item1, item2, item3], at: 1)
+    }
+
+    private func makeItem(id: Int?, uuid: String?, name: String?, exerciseBase: Int?) -> ExerciseItem {
+        return ExerciseItem(id: id, uuid: uuid, name: name, exerciseBase: exerciseBase, description: nil, created: nil, category: nil, language: nil, variations: nil)
+    }
+
     // MARK: - Helpers
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: ExerciseListViewController, viewModel: ViewModelSpy) {
         let viewModel = ViewModelSpy()
@@ -53,18 +77,18 @@ final class ExerciseListViewControllerTests: XCTestCase {
 
     class ViewModelSpy: ExerciseListViewModelLogic {
 
-        private var completions = [() -> Void]()
+        private var completions = [(ExerciseListViewModelLogic.Result) -> Void]()
 
         var loadCallCount: Int {
             return completions.count
         }
 
-        func start(completion: @escaping () -> Void) {
+        func start(completion: @escaping (ExerciseListViewModelLogic.Result) -> Void) {
             completions.append(completion)
         }
 
-        func completeFeedLoading(at index: Int) {
-            completions[index]()
+        func completeFeedLoading(with exercises: [ExerciseItem] = [], at index: Int) {
+            completions[index](.success(exercises))
         }
     }
 }
@@ -76,6 +100,27 @@ private extension ExerciseListViewController {
 
     var isShowingLoadingIndicator: Bool {
         return refreshControl?.isRefreshing == true
+    }
+
+    func numberOfRenderedExercisesViews() -> Int {
+        return tableView.numberOfRows(inSection: exerciseItemsSection)
+    }
+
+    func exerciseItemView(at row: Int) -> UITableViewCell? {
+        let dataSource = tableView.dataSource
+        let index = IndexPath(row: row, section: exerciseItemsSection)
+        return dataSource?.tableView(tableView, cellForRowAt: index)
+    }
+
+    private var exerciseItemsSection: Int {
+        return 0
+    }
+}
+
+private extension ExerciseItemCell {
+
+    var nameText: String? {
+        return nameLabel.text
     }
 }
 
