@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol EndpointRouter {
+public protocol EndpointRouter {
     var path: String { get }
     var method: HTTPMethod { get }
     var contentType: String { get }

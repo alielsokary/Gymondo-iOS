@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		412D9A062A98C2B0008FE272 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412D9A052A98C2B0008FE272 /* Coordinator.swift */; };
+		412D9A0C2A98C306008FE272 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412D9A0B2A98C306008FE272 /* MainCoordinator.swift */; };
+		412D9A102A98C3CD008FE272 /* Storyboard+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412D9A0F2A98C3CD008FE272 /* Storyboard+Helper.swift */; };
+		412D9A132A98DB36008FE272 /* UIview+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412D9A122A98DB36008FE272 /* UIview+Extension.swift */; };
 		415447B12A94F12100472BF5 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415447B02A94F12100472BF5 /* APIConstants.swift */; };
 		415447B32A94F1AE00472BF5 /* EndpointRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415447B22A94F1AE00472BF5 /* EndpointRouter.swift */; };
 		415447B52A94F22400472BF5 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415447B42A94F22400472BF5 /* HTTPMethod.swift */; };
@@ -84,6 +88,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		412D9A052A98C2B0008FE272 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		412D9A0B2A98C306008FE272 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		412D9A0F2A98C3CD008FE272 /* Storyboard+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+Helper.swift"; sourceTree = "<group>"; };
+		412D9A122A98DB36008FE272 /* UIview+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIview+Extension.swift"; sourceTree = "<group>"; };
 		415447AE2A94EF0900472BF5 /* CI_macOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CI_macOS.xctestplan; sourceTree = "<group>"; };
 		415447B02A94F12100472BF5 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		415447B22A94F1AE00472BF5 /* EndpointRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointRouter.swift; sourceTree = "<group>"; };
@@ -160,6 +168,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		412D9A042A98C2A3008FE272 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				412D9A052A98C2B0008FE272 /* Coordinator.swift */,
+				412D9A0B2A98C306008FE272 /* MainCoordinator.swift */,
+				412D9A0F2A98C3CD008FE272 /* Storyboard+Helper.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		412D9A112A98DB16008FE272 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				412D9A122A98DB36008FE272 /* UIview+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		415447AF2A94F0F400472BF5 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,7 +236,9 @@
 		415447E22A97813900472BF5 /* GymondoiOS */ = {
 			isa = PBXGroup;
 			children = (
+				412D9A042A98C2A3008FE272 /* Coordinator */,
 				41DB746A2A98AA13009A6055 /* Scenes */,
+				412D9A112A98DB16008FE272 /* Extensions */,
 			);
 			path = GymondoiOS;
 			sourceTree = "<group>";
@@ -335,8 +363,8 @@
 		41DB746D2A98AA39009A6055 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				415448062A9887D500472BF5 /* ExerciseItemCell.swift */,
 				415448072A9887D500472BF5 /* ExerciseItemCell.xib */,
+				415448062A9887D500472BF5 /* ExerciseItemCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -583,7 +611,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				415448082A9887D500472BF5 /* ExerciseItemCell.swift in Sources */,
+				412D9A0C2A98C306008FE272 /* MainCoordinator.swift in Sources */,
+				412D9A102A98C3CD008FE272 /* Storyboard+Helper.swift in Sources */,
 				415448052A97B31200472BF5 /* ExerciseListViewController.swift in Sources */,
+				412D9A132A98DB36008FE272 /* UIview+Extension.swift in Sources */,
+				412D9A062A98C2B0008FE272 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

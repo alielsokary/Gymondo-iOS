@@ -9,6 +9,6 @@ import UIKit
 
 class ExerciseItemCell: UITableViewCell {
 
-    let nameLabel = UILabel()
-
+    @IBOutlet weak var exerciseImageView: UIImageView!
+    @IBOutlet weak var exerciseNameLabel: UILabel!
 }

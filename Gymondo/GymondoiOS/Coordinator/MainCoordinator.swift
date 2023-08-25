@@ -6,22 +6,24 @@
 //
 
 import UIKit
-import GymondoiOS
+import Gymondo
 
-class MainCoordinator: NSObject, Coordinator {
+public class MainCoordinator: NSObject, Coordinator {
 
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
 
-    init(navigationController: UINavigationController) {
+    public init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
 
-    func start() {
+    public func start() {
         navigationController.delegate = self
+        let apiService: ExerciseService = ExerciseServiceImpl()
+        let viewModel: ExerciseListViewModelLogic = ExerciseListViewModel(apiService: apiService)
         let storyboard = Storyboard.Exercises.instance
         let viewController = storyboard.instantiateViewController(identifier: ExerciseListViewController.storyboardID) { coder in
-            return ExerciseListViewController(coder: coder)
+            return ExerciseListViewController(coder: coder, coordinator: self, viewModel: viewModel)
         }
         navigationController.pushViewController(viewController, animated: false)
     }
@@ -39,7 +41,7 @@ class MainCoordinator: NSObject, Coordinator {
 }
 
 extension MainCoordinator: UINavigationControllerDelegate {
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+    public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from) else { return }
 
         if navigationController.viewControllers.contains(fromViewController) {

@@ -70,20 +70,53 @@ final class ExerciseListViewControllerTests: XCTestCase {
         viewModel.completeFeedLoading(with: [item0, item1, item2, item3], at: 1)
     }
 
-    private func makeItem(id: Int?, uuid: String?, name: String?, exerciseBase: Int?) -> ExerciseItem {
+    func makeItem(id: Int?, uuid: String?, name: String?, exerciseBase: Int?) -> ExerciseItem {
         return ExerciseItem(id: id, uuid: uuid, name: name, exerciseBase: exerciseBase, description: nil, created: nil, category: nil, language: nil, variations: nil)
     }
 
     // MARK: - Helpers
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: ExerciseListViewController, viewModel: ViewModelSpy) {
         let viewModel = ViewModelSpy()
-        let sut = ExerciseListViewController(viewModel: viewModel)
+        let mockNavigation = MockNavigation()
+        let mockCoordinator = MockCoordinator(navigationController: mockNavigation)
+
+        let sut = ExerciseListViewController(coder: mockCoder(), coordinator: mockCoordinator, viewModel: viewModel)!
         trackForMemoryLeaks(viewModel, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, viewModel)
     }
 
+    func mockCoder() -> NSKeyedUnarchiver {
+        let object = UIView()
+        let data = try! NSKeyedArchiver.archivedData(withRootObject: object, requiringSecureCoding: false)
+        let coder = try! NSKeyedUnarchiver(forReadingFrom: data)
+        return coder
+    }
+
+    class MockCoordinator: MainCoordinator {
+
+    }
+
+    class MockNavigation: UINavigationController {
+
+    }
+
     class ViewModelSpy: ExerciseListViewModelLogic {
+
+        let item0 = ExerciseItem(id: 1,
+                                 uuid: "",
+                                 name: "Item",
+                                 exerciseBase: 1,
+                                 description: nil,
+                                 created: nil,
+                                 category: nil,
+                                 language: nil,
+                                 variations: nil)
+
+        var exerciseList: [Gymondo.ExerciseItem] {
+            return [item0]
+        }
+
         var title: String {
             return "Gymondo"
         }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GymondoiOS
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 

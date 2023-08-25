@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-struct APIClient: HTTPClient {
+public struct APIClient: HTTPClient {
 
     private let urlSession: URLSession
 
@@ -49,7 +49,7 @@ struct APIClient: HTTPClient {
 
 // MARK: - Error Handling
 
-enum NetworkRequestError: LocalizedError, Equatable {
+public enum NetworkRequestError: LocalizedError, Equatable {
     case invalidRequest
     case badRequest
     case unauthorized

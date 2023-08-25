@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import GymondoiOS
 
 enum Storyboard: String {
     case Exercises
