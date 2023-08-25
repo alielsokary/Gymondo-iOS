@@ -14,4 +14,14 @@ struct ExercisesRouter {
         var path: String = "/exercise"
         var method: HTTPMethod = .get
     }
+
+    struct GetImages: EndpointRouter {
+        typealias ReturnType = ExerciseImages
+        var path: String = "/exerciseimage"
+        var method: HTTPMethod = .get
+        var queryParams: [String: Any]?
+        init(queryParams: APIParameters.Exercise) {
+            self.queryParams = queryParams.asDictionary
+        }
+    }
 }
