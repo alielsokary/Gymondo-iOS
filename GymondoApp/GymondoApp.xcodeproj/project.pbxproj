@@ -17,9 +17,6 @@
 		4189D88A2A98A55F00EE1180 /* Gymondo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4189D8872A98A55F00EE1180 /* Gymondo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4189D88B2A98A55F00EE1180 /* GymondoiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4189D8882A98A55F00EE1180 /* GymondoiOS.framework */; };
 		4189D88C2A98A55F00EE1180 /* GymondoiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4189D8882A98A55F00EE1180 /* GymondoiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4189D8902A98A6CA00EE1180 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4189D88F2A98A6CA00EE1180 /* Coordinator.swift */; };
-		41DB74672A98A7F0009A6055 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DB74662A98A7F0009A6055 /* MainCoordinator.swift */; };
-		41DB74692A98A905009A6055 /* Storyboard+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DB74682A98A905009A6055 /* Storyboard+Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,9 +56,6 @@
 		4189D86D2A98A41500EE1180 /* GymondoAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymondoAppTests.swift; sourceTree = "<group>"; };
 		4189D8872A98A55F00EE1180 /* Gymondo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Gymondo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4189D8882A98A55F00EE1180 /* GymondoiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GymondoiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4189D88F2A98A6CA00EE1180 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		41DB74662A98A7F0009A6055 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
-		41DB74682A98A905009A6055 /* Storyboard+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+Helper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +100,6 @@
 		4189D8552A98A41400EE1180 /* GymondoApp */ = {
 			isa = PBXGroup;
 			children = (
-				4189D88E2A98A6BA00EE1180 /* Coordinator */,
 				4189D8562A98A41400EE1180 /* AppDelegate.swift */,
 				4189D8582A98A41400EE1180 /* SceneDelegate.swift */,
 				4189D85A2A98A41400EE1180 /* ViewController.swift */,
@@ -132,16 +125,6 @@
 				4189D8882A98A55F00EE1180 /* GymondoiOS.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4189D88E2A98A6BA00EE1180 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				4189D88F2A98A6CA00EE1180 /* Coordinator.swift */,
-				41DB74662A98A7F0009A6055 /* MainCoordinator.swift */,
-				41DB74682A98A905009A6055 /* Storyboard+Helper.swift */,
-			);
-			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,11 +228,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4189D8902A98A6CA00EE1180 /* Coordinator.swift in Sources */,
 				4189D85B2A98A41400EE1180 /* ViewController.swift in Sources */,
-				41DB74692A98A905009A6055 /* Storyboard+Helper.swift in Sources */,
 				4189D8572A98A41400EE1180 /* AppDelegate.swift in Sources */,
-				41DB74672A98A7F0009A6055 /* MainCoordinator.swift in Sources */,
 				4189D8592A98A41400EE1180 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
