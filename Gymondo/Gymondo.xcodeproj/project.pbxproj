@@ -250,6 +250,7 @@
 			children = (
 				412D9A042A98C2A3008FE272 /* Coordinator */,
 				41DB746A2A98AA13009A6055 /* Scenes */,
+				41CD32C42A992212003BFCC8 /* Resources */,
 				412D9A112A98DB16008FE272 /* Extensions */,
 			);
 			path = GymondoiOS;
@@ -288,6 +289,13 @@
 				417FBE212A98935200977B2E /* ExerciseItemCell+TestHelpers.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		41CD32C42A992212003BFCC8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		41D899CC2A940A9200291E5F = {
