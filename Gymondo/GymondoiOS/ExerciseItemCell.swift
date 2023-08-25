@@ -11,9 +11,4 @@ class ExerciseItemCell: UITableViewCell {
 
     let nameLabel = UILabel()
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
 }

@@ -30,6 +30,9 @@
 		415448052A97B31200472BF5 /* ExerciseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415448042A97B31200472BF5 /* ExerciseListViewController.swift */; };
 		415448082A9887D500472BF5 /* ExerciseItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415448062A9887D500472BF5 /* ExerciseItemCell.swift */; };
 		415448092A9887D500472BF5 /* ExerciseItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 415448072A9887D500472BF5 /* ExerciseItemCell.xib */; };
+		417FBE1E2A9892CE00977B2E /* ExerciseListViewController+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417FBE1D2A9892CE00977B2E /* ExerciseListViewController+TestHelpers.swift */; };
+		417FBE202A98932500977B2E /* UIRefreshControl+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417FBE1F2A98932500977B2E /* UIRefreshControl+TestHelpers.swift */; };
+		417FBE222A98935200977B2E /* ExerciseItemCell+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417FBE212A98935200977B2E /* ExerciseItemCell+TestHelpers.swift */; };
 		41D899DF2A940A9200291E5F /* Gymondo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D899D62A940A9200291E5F /* Gymondo.framework */; };
 		41D899EF2A940AF700291E5F /* Exercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D899EE2A940AF700291E5F /* Exercises.swift */; };
 /* End PBXBuildFile section */
@@ -104,6 +107,9 @@
 		415448042A97B31200472BF5 /* ExerciseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListViewController.swift; sourceTree = "<group>"; };
 		415448062A9887D500472BF5 /* ExerciseItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseItemCell.swift; sourceTree = "<group>"; };
 		415448072A9887D500472BF5 /* ExerciseItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseItemCell.xib; sourceTree = "<group>"; };
+		417FBE1D2A9892CE00977B2E /* ExerciseListViewController+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseListViewController+TestHelpers.swift"; sourceTree = "<group>"; };
+		417FBE1F2A98932500977B2E /* UIRefreshControl+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+TestHelpers.swift"; sourceTree = "<group>"; };
+		417FBE212A98935200977B2E /* ExerciseItemCell+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseItemCell+TestHelpers.swift"; sourceTree = "<group>"; };
 		41D899D62A940A9200291E5F /* Gymondo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gymondo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D899DE2A940A9200291E5F /* GymondoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GymondoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D899EE2A940AF700291E5F /* Exercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercises.swift; sourceTree = "<group>"; };
@@ -212,6 +218,7 @@
 		415447EC2A97813900472BF5 /* GymondoiOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				417FBE1C2A9892BA00977B2E /* Helpers */,
 				415447F82A9782AA00472BF5 /* ExerciseListViewControllerTests.swift */,
 			);
 			path = GymondoiOSTests;
@@ -230,6 +237,16 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		417FBE1C2A9892BA00977B2E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				417FBE1D2A9892CE00977B2E /* ExerciseListViewController+TestHelpers.swift */,
+				417FBE1F2A98932500977B2E /* UIRefreshControl+TestHelpers.swift */,
+				417FBE212A98935200977B2E /* ExerciseItemCell+TestHelpers.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		41D899CC2A940A9200291E5F = {
@@ -538,6 +555,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				417FBE1E2A9892CE00977B2E /* ExerciseListViewController+TestHelpers.swift in Sources */,
+				417FBE222A98935200977B2E /* ExerciseItemCell+TestHelpers.swift in Sources */,
+				417FBE202A98932500977B2E /* UIRefreshControl+TestHelpers.swift in Sources */,
 				415447F92A9782AA00472BF5 /* ExerciseListViewControllerTests.swift in Sources */,
 				415448032A97910200472BF5 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
