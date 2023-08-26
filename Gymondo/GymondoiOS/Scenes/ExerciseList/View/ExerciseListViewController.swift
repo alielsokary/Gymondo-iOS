@@ -54,17 +54,6 @@ private extension ExerciseListViewController {
 private extension ExerciseListViewController {
     func setupUI() {
         self.navigationItem.title = viewModel.title
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-
-        let style = UINavigationBarAppearance()
-        style.configureWithDefaultBackground()
-
-        style.titleTextAttributes = [.font: UIFont.systemFont(ofSize: 18)]
-
-        self.navigationController?.navigationBar.standardAppearance = style
-        self.navigationController?.navigationBar.compactAppearance = style
-
-        self.navigationController?.navigationBar.scrollEdgeAppearance = style
 
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
