@@ -28,8 +28,10 @@ public class MainCoordinator: NSObject, Coordinator {
         navigationController.pushViewController(viewController, animated: false)
     }
 
-    func navigateTo(with data: Data) {
-
+    @MainActor func navigateToExerciseDetails(with data: ExerciseItemViewModel) {
+        let cordinator = ExerciseDetailsCoordinator(navigationController: navigationController, exerciseItemViewModel: data)
+        childCoordinators.append(cordinator)
+        cordinator.start()
     }
 
     func childDidFinish(_ child: Coordinator?) {

@@ -92,4 +92,8 @@ extension ExerciseListViewController {
     public override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
+
+    public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        coordinator?.navigateToExerciseDetails(with: viewModel.exercicesViewModel[indexPath.row])
+    }
 }
