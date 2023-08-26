@@ -76,7 +76,7 @@ struct ExerciseVariationsSection: View {
                 ForEach(viewModel.excerciseItemsList, id: \.self) { viewModel in
                     CardView(viewModel: viewModel)
                         .onTapGesture {
-                        coordinator?.navigateToExerciseDetails(with: viewModel)
+                        coordinator?.navigateToExerciseVariationDetails(with: viewModel)
                     }
                         .frame(width: UIScreen.main.bounds.width, height: 50)
                         .background(Color.gray.opacity(0.1))
