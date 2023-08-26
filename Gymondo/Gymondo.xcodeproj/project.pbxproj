@@ -47,7 +47,7 @@
 		41D899EF2A940AF700291E5F /* Exercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D899EE2A940AF700291E5F /* Exercises.swift */; };
 		41DB746F2A98AAB6009A6055 /* Exercises.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41DB746E2A98AAB6009A6055 /* Exercises.storyboard */; };
 		41F12BA02A992CCC002F8C83 /* ExerciseDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F12B9F2A992CCC002F8C83 /* ExerciseDetailsCoordinator.swift */; };
-		41F12BA32A992DB1002F8C83 /* ExerciseDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F12BA22A992DB1002F8C83 /* ExerciseDetailsViewModel.swift */; };
+		41F12BA42A9A1011002F8C83 /* ExerciseDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F12BA22A992DB1002F8C83 /* ExerciseDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -276,6 +276,7 @@
 			children = (
 				415447FB2A978D1600472BF5 /* ExerciseListViewModel.swift */,
 				41CD32C22A99113C003BFCC8 /* ExerciseItemViewModel.swift */,
+				41F12BA22A992DB1002F8C83 /* ExerciseDetailsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -308,7 +309,6 @@
 			isa = PBXGroup;
 			children = (
 				41F12B9E2A992CAF002F8C83 /* Coordinator */,
-				41F12BA12A992D89002F8C83 /* ViewModel */,
 				41F12B9D2A992C2B002F8C83 /* View */,
 			);
 			path = "Exercise Details";
@@ -422,14 +422,6 @@
 				41F12B9F2A992CCC002F8C83 /* ExerciseDetailsCoordinator.swift */,
 			);
 			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		41F12BA12A992D89002F8C83 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				41F12BA22A992DB1002F8C83 /* ExerciseDetailsViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -684,7 +676,6 @@
 				41F12BA02A992CCC002F8C83 /* ExerciseDetailsCoordinator.swift in Sources */,
 				412D9A102A98C3CD008FE272 /* Storyboard+Helper.swift in Sources */,
 				415448052A97B31200472BF5 /* ExerciseListViewController.swift in Sources */,
-				41F12BA32A992DB1002F8C83 /* ExerciseDetailsViewModel.swift in Sources */,
 				412D9A132A98DB36008FE272 /* UIview+Extension.swift in Sources */,
 				412D9A062A98C2B0008FE272 /* Coordinator.swift in Sources */,
 				41CD32CB2A992A29003BFCC8 /* ExerciseDetailsView.swift in Sources */,
@@ -709,6 +700,7 @@
 			files = (
 				41CD32BB2A98F5AC003BFCC8 /* APIParameters.swift in Sources */,
 				415447FC2A978D1600472BF5 /* ExerciseListViewModel.swift in Sources */,
+				41F12BA42A9A1011002F8C83 /* ExerciseDetailsViewModel.swift in Sources */,
 				415447B52A94F22400472BF5 /* HTTPMethod.swift in Sources */,
 				415447C82A969E2A00472BF5 /* Optional+Extension.swift in Sources */,
 				41CD32BD2A98F641003BFCC8 /* Encodable+Extension.swift in Sources */,
