@@ -34,6 +34,7 @@
       }
     },
     {
+      "enabled" : false,
       "target" : {
         "containerPath" : "container:Gymondo.xcodeproj",
         "identifier" : "415447CE2A96ABEF00472BF5",

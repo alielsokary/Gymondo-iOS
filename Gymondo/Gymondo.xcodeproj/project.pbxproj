@@ -138,6 +138,7 @@
 		41DB746E2A98AAB6009A6055 /* Exercises.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Exercises.storyboard; sourceTree = "<group>"; };
 		41F12B9F2A992CCC002F8C83 /* ExerciseDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailsCoordinator.swift; sourceTree = "<group>"; };
 		41F12BA22A992DB1002F8C83 /* ExerciseDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailsViewModel.swift; sourceTree = "<group>"; };
+		41F12BA52A9A43F7002F8C83 /* CI_iOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = CI_iOS.xctestplan; path = ../CI_iOS.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,6 +321,7 @@
 				415447F72A97820D00472BF5 /* GymondoiOS.xctestplan */,
 				415447DB2A96B61500472BF5 /* GymondoAPIEndToEndTests.xctestplan */,
 				415447AE2A94EF0900472BF5 /* CI_macOS.xctestplan */,
+				41F12BA52A9A43F7002F8C83 /* CI_iOS.xctestplan */,
 				41D899D82A940A9200291E5F /* Gymondo */,
 				41D899E22A940A9200291E5F /* GymondoTests */,
 				415447D02A96ABEF00472BF5 /* GymondoAPIEndToEndTests */,
