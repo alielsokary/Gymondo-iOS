@@ -6,7 +6,7 @@
 //
 
 // MARK: - ExerciseImageItem
-public struct ExerciseImageItem: Codable {
+public struct ExerciseImageItem: Codable, Hashable {
     public let id: Int?
     public let uuid: String?
     public let exerciseBase: Int?

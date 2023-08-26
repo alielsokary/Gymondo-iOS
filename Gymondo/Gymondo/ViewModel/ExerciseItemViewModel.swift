@@ -7,7 +7,8 @@
 
 import Foundation
 
-public class ExerciseItemViewModel: Identifiable {
+public class ExerciseItemViewModel: Identifiable, Hashable {
+
     public let id: Int
     public let name: String
     public let mainImageURL: String?
@@ -22,5 +23,15 @@ public class ExerciseItemViewModel: Identifiable {
         self.mainImageURL = mainImageURL
         self.variations = variations
         self.exerciseBase = exerciseBase
+    }
+
+    public static func == (lhs: ExerciseItemViewModel, rhs: ExerciseItemViewModel) -> Bool {
+        return lhs.id == rhs.id && lhs.name == rhs.name && lhs.images == rhs.images
+    }
+
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+        hasher.combine(name)
+        hasher.combine(images)
     }
 }
