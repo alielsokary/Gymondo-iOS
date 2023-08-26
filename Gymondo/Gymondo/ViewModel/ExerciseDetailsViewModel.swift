@@ -12,8 +12,9 @@ import Foundation
     @Published public var imageUrl: URL?
 
     @Published public var variationsTitle = "Variations"
-    @Published public var excerciseItemsList = [ExerciseItemViewModel]()
+    @Published public var exerciseImagesTitle = "Exercise Images"
 
+    @Published public var excerciseItemsList = [ExerciseItemViewModel]()
     public init() { }
 
     public var exerciseItemViewModel: ExerciseItemViewModel? {
