@@ -18,4 +18,15 @@ import Gymondo
             imageUrl = URL(string: (exerciseItemViewModel?.imageItem?.image).unwrapped)
         }
     }
+
+    var apiService: ExerciseService = ExerciseServiceImpl()
+
+    func getExerciseVariations() {
+        let variations = (exerciseItemViewModel?.variations).unwrapped
+        guard !variations.isEmpty else { return }
+
+        variations.forEach { [weak self] _ in
+            apiService.dispatch(ExercisesRouter
+        }
+    }
 }
