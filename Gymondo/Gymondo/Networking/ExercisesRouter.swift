@@ -15,6 +15,12 @@ struct ExercisesRouter {
         var method: HTTPMethod = .get
     }
 
+    struct GetExercise: EndpointRouter {
+        typealias ReturnType = ExerciseItem
+        var path: String = ""
+        var method: HTTPMethod = .get
+    }
+
     struct GetImages: EndpointRouter {
         typealias ReturnType = ExerciseImages
         var path: String = "/exerciseimage"
