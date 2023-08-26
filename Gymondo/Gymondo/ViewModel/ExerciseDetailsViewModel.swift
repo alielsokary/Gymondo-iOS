@@ -19,7 +19,7 @@ import Foundation
     public var exerciseItemViewModel: ExerciseItemViewModel? {
         didSet {
             exerciseName =  exerciseItemViewModel?.name
-            imageUrl = URL(string: (exerciseItemViewModel?.imageItem?.image).unwrapped)
+            imageUrl = URL(string: (exerciseItemViewModel?.images?.first?.image).unwrapped)
         }
     }
 
@@ -30,7 +30,7 @@ import Foundation
         guard !variations.isEmpty else { return }
 
         variations.forEach { [weak self] variation in
-            _ = self?.apiService.dispatch(ExercisesRouter.GetExercise(path: "/exercise/\(variation)", method: .get)).sink { completion in
+            _ = self?.apiService.dispatch(ExercisesRouter.GetExerciseinfo(path: "/exercise/\(variation)", method: .get)).sink { completion in
                 switch completion {
                 case .finished: break
                 case let .failure(error):
@@ -41,8 +41,10 @@ import Foundation
                 let exerciseName = (exerciseItem.name).unwrapped
                 let variations = (exerciseItem.variations).unwrapped
                 let exerciseBase = (exerciseItem.exerciseBase).unwrapped
+                let images = (exerciseItem.images)
+                let mainImageURL = (exerciseItem.images?.first)?.image
 
-                let exerciceVM = ExerciseItemViewModel(id: exerciseID, name: exerciseName, imageItem: nil, variations: variations, exerciseBase: exerciseBase)
+                let exerciceVM = ExerciseItemViewModel(id: exerciseID, name: exerciseName, images: images, mainImageURL: mainImageURL, variations: variations, exerciseBase: exerciseBase)
                 self?.excerciseItemsList.append(exerciceVM)
             }
         }

@@ -49,28 +49,14 @@ public class ExerciseListViewModel: ExerciseListViewModelLogic {
                 let exerciseName = (exerciseItem.name).unwrapped
                 let variations = (exerciseItem.variations).unwrapped
                 let exerciseBase = (exerciseItem.exerciseBase).unwrapped
+                let images = (exerciseItem.images)
+                let mainImageURL = (exerciseItem.images?.first)?.image
 
-                let exerciceVM = ExerciseItemViewModel(id: exerciseID, name: exerciseName, imageItem: nil, variations: variations, exerciseBase: exerciseBase)
+                let exerciceVM = ExerciseItemViewModel(id: exerciseID, name: exerciseName, images: images, mainImageURL: mainImageURL, variations: variations, exerciseBase: exerciseBase)
                 self?._exercicesViewModel.append(exerciceVM)
-                self?.getImages()
             })
             completion(.success(value.results!))
         }
 
-    }
-
-    func getImages() {
-        _exercicesViewModel.enumerated().forEach({ index, exerciseItem in
-            _ = apiService.dispatch(ExercisesRouter.GetImages(queryParams: APIParameters.Exercise(exercise_base: exerciseItem.exerciseBase))).sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished: break
-                case let .failure(error):
-                    print(error)
-                }
-            }, receiveValue: { [weak self] value in
-                let exerciseImage = value.results?.first
-                self?._exercicesViewModel[index].imageItem = exerciseImage
-            })
-        })
     }
 }

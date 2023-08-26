@@ -1,17 +1,12 @@
 //
-//  ExerciseImages.swift
+//  ExerciseImageItem.swift
 //  Gymondo
 //
 //  Created by Ali Elsokary on 25/08/2023.
 //
 
-// MARK: - ExerciseImages
-public struct ExerciseImages: Codable {
-    public let results: [ImageItem]?
-}
-
-// MARK: - ImageItem
-public struct ImageItem: Codable {
+// MARK: - ExerciseImageItem
+public struct ExerciseImageItem: Codable {
     public let id: Int?
     public let uuid: String?
     public let exerciseBase: Int?

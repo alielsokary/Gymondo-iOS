@@ -17,7 +17,7 @@ class ExerciseItemCell: UITableViewCell {
     var viewModel: ExerciseItemViewModel! {
         didSet {
             exerciseNameLabel.text = viewModel.name
-            exerciseImageView.kf.setImage(with: URL(string: (viewModel.imageItem?.image).unwrapped), placeholder: UIImage(named: "logo"))
+            exerciseImageView.kf.setImage(with: URL(string: (viewModel.mainImageURL).unwrapped), placeholder: UIImage(named: "logo"))
         }
     }
 

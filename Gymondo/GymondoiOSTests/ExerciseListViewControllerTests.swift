@@ -71,7 +71,7 @@ final class ExerciseListViewControllerTests: XCTestCase {
     }
 
     func makeItem(id: Int?, uuid: String?, name: String?, exerciseBase: Int?) -> ExerciseItem {
-        return ExerciseItem(id: id, uuid: uuid, name: name, exerciseBase: exerciseBase, description: nil, created: nil, category: nil, language: nil, variations: nil)
+        return ExerciseItem(id: id, uuid: uuid, name: name, exerciseBase: exerciseBase, description: nil, images: nil, created: nil, variations: nil)
     }
 
     // MARK: - Helpers
@@ -103,7 +103,7 @@ final class ExerciseListViewControllerTests: XCTestCase {
 
     class ViewModelSpy: ExerciseListViewModelLogic {
 
-        let item0 = ExerciseItemViewModel(name: "Item", imageItem: nil, variations: nil, exerciseBase: 1)
+        let item0 = ExerciseItemViewModel(id: 1, name: "Item", images: nil, mainImageURL: nil, variations: nil, exerciseBase: nil)
 
         var exercicesViewModel: [Gymondo.ExerciseItemViewModel] {
             [item0]
