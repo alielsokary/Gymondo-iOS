@@ -12,8 +12,9 @@ import Foundation
     @Published public var imageUrl: URL?
 
     @Published public var variationsTitle = "Variations"
-    @Published public var excerciseItemsList = [ExerciseItemViewModel]()
+    @Published public var exerciseImagesTitle = "Exercise Images"
 
+    @Published public var excerciseItemsList = [ExerciseItemViewModel]()
     public init() { }
 
     public var exerciseItemViewModel: ExerciseItemViewModel? {
@@ -30,7 +31,7 @@ import Foundation
         guard !variations.isEmpty else { return }
 
         variations.forEach { [weak self] variation in
-            _ = self?.apiService.dispatch(ExercisesRouter.GetExerciseinfo(path: "/exercise/\(variation)", method: .get)).sink { completion in
+            _ = self?.apiService.dispatch(ExercisesRouter.GetExerciseinfo(path: "/exerciseinfo/\(variation)", method: .get)).sink { completion in
                 switch completion {
                 case .finished: break
                 case let .failure(error):

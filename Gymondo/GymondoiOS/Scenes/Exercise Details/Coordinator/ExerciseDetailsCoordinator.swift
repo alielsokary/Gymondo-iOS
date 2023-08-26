@@ -31,7 +31,7 @@ class ExerciseDetailsCoordinator: Coordinator {
         navigationController.pushViewController(newView, animated: true)
     }
 
-    @MainActor func navigateToExerciseDetails(with data: ExerciseItemViewModel) {
+    @MainActor func navigateToExerciseVariationDetails(with data: ExerciseItemViewModel) {
         let cordinator = ExerciseDetailsCoordinator(navigationController: navigationController, exerciseItemViewModel: data)
         childCoordinators.append(cordinator)
         cordinator.start()
