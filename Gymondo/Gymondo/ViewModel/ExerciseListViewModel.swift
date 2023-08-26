@@ -44,11 +44,13 @@ public class ExerciseListViewModel: ExerciseListViewModelLogic {
             }
         } receiveValue: { [weak self] value in
             value.results?.forEach({ exerciseItem in
+                let exerciseID = (exerciseItem.id).unwrapped
+
                 let exerciseName = (exerciseItem.name).unwrapped
                 let variations = (exerciseItem.variations).unwrapped
                 let exerciseBase = (exerciseItem.exerciseBase).unwrapped
 
-                let exerciceVM = ExerciseItemViewModel(name: exerciseName, imageItem: nil, variations: variations, exerciseBase: exerciseBase)
+                let exerciceVM = ExerciseItemViewModel(id: exerciseID, name: exerciseName, imageItem: nil, variations: variations, exerciseBase: exerciseBase)
                 self?._exercicesViewModel.append(exerciceVM)
                 self?.getImages()
             })
