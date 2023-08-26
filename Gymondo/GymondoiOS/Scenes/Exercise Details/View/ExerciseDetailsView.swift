@@ -9,18 +9,27 @@ import SwiftUI
 import Gymondo
 
 struct ExerciseDetailsView: View {
-    var exerciseViewModel: ExerciseItemViewModel
+
+    @StateObject var viewModel = ExerciseDetailsViewModel()
+
     var body: some View {
-        VStack(spacing: 8) {
-            AsyncImage(url: URL(string: (exerciseViewModel.imageItem?.image).unwrapped), content: { image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-            }, placeholder: {
-                Color.gray.opacity(0.3)
-            })
-            
-            Text(exerciseViewModel.name)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 8) {
+                Spacer()
+                Text(viewModel.exerciseName.unwrapped)
+                    .padding(.horizontal, 8)
+                    .font(.system(size: 20, weight: .bold))
+
+                AsyncImage(url: viewModel.imageUrl, content: { image in
+                    image
+                        .resizable()
+                        .scaledToFit()
+                }, placeholder: {
+                    Image("logo")
+                        .resizable()
+                        .scaledToFit()
+                })
+            }.background(Color.gray.opacity(0.2))
         }
     }
 }
