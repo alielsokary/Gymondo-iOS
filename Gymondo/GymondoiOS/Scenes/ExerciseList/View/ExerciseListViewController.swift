@@ -7,7 +7,6 @@
 
 import UIKit
 import Gymondo
-import Kingfisher
 
 public final class ExerciseListViewController: UITableViewController {
 
