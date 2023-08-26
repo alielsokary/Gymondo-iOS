@@ -9,11 +9,10 @@ import SwiftUI
 import Gymondo
 
 struct ExerciseDetailsView: View {
-
+    var coordinator: ExerciseDetailsCoordinator?
     @StateObject var viewModel = ExerciseDetailsViewModel()
 
     var body: some View {
-        ScrollView {
             VStack(alignment: .leading, spacing: 8) {
                 Spacer()
                 Text(viewModel.exerciseName.unwrapped)
@@ -23,13 +22,42 @@ struct ExerciseDetailsView: View {
                 AsyncImage(url: viewModel.imageUrl, content: { image in
                     image
                         .resizable()
-                        .scaledToFit()
+                        .aspectRatio(1.0, contentMode: .fit)
                 }, placeholder: {
                     Image("logo")
                         .resizable()
                         .scaledToFit()
                 })
-            }.background(Color.gray.opacity(0.2))
+
+            }
+            .onAppear {
+                viewModel.getExerciseVariations()
+            }.onDisappear {
+                viewModel.resetData()
+            }
+
+        VStack(alignment: .leading, spacing: 8) {
+            Spacer()
+            Spacer()
+            Text(viewModel.variationsTitle)
+                .padding(.horizontal, 8)
+                .font(.system(size: 20, weight: .bold))
+            List(viewModel.excerciseItemsList) { viewModel in
+                ExerciseVariationItemView(viewModel: viewModel).onTapGesture {
+                    coordinator?.navigateToExerciseDetails(with: viewModel)
+                }
+            }
         }
+    }
+}
+
+struct ExerciseVariationItemView: View {
+    var viewModel: ExerciseItemViewModel
+    var body: some View {
+        ZStack {
+            Text(viewModel.name)
+                .padding(.horizontal, 8)
+        }
+
     }
 }

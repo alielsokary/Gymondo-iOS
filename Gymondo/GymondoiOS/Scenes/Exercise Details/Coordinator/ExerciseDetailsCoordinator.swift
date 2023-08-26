@@ -24,7 +24,16 @@ class ExerciseDetailsCoordinator: Coordinator {
     @MainActor func start() {
         let viewmodel = ExerciseDetailsViewModel()
         viewmodel.exerciseItemViewModel = exerciseItemViewModel
-        let newView = UIHostingController(rootView: ExerciseDetailsView(viewModel: viewmodel))
+
+        var exerciseDetailsView = ExerciseDetailsView(viewModel: viewmodel)
+        exerciseDetailsView.coordinator = self
+        let newView = UIHostingController(rootView: exerciseDetailsView)
         navigationController.pushViewController(newView, animated: true)
+    }
+
+    @MainActor func navigateToExerciseDetails(with data: ExerciseItemViewModel) {
+        let cordinator = ExerciseDetailsCoordinator(navigationController: navigationController, exerciseItemViewModel: data)
+        childCoordinators.append(cordinator)
+        cordinator.start()
     }
 }
