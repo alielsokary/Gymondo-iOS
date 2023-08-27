@@ -13,6 +13,8 @@ import Foundation
 
     @Published public var variationsTitle = "Variations"
     @Published public var exerciseImagesTitle = "Exercise Images"
+    @Published public var emptyImagesTitle = "No images available"
+    @Published public var emptyVariationsTitle =  "No variations available"
 
     @Published public var excerciseItemsList = [ExerciseItemViewModel]()
     public init() { }

@@ -44,7 +44,7 @@ struct ExerciseImagesSection: View {
     var body: some View {
         if ((viewModel.exerciseItemViewModel?.images).unwrapped).isEmpty {
                 SectionTitle(title: viewModel.exerciseImagesTitle)
-                EmptySectionText(title: "No images Available")
+            EmptySectionText(title: viewModel.emptyImagesTitle)
         } else {
             VStack(alignment: .leading, spacing: 8) {
                 SectionTitle(title: viewModel.exerciseImagesTitle)
@@ -85,7 +85,7 @@ struct ExerciseVariationsSection: View {
             }
         } else {
             SectionTitle(title: viewModel.variationsTitle)
-            EmptySectionText(title: "No variations Available")
+            EmptySectionText(title: viewModel.emptyVariationsTitle)
         }
     }
 }
