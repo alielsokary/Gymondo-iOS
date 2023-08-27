@@ -29,7 +29,7 @@ struct ExerciseDetailsView: View {
                     ExerciseVariationsSection(coordinator: coordinator, viewModel: viewModel)
                 }
 
-            }.navigationBarTitle(viewModel.exerciseName.unwrapped)
+            }.navigationBarTitle(viewModel.exerciseName)
             .onAppear {
                 viewModel.getExerciseVariations()
             }.onDisappear {
@@ -42,14 +42,14 @@ struct ExerciseDetailsView: View {
 struct ExerciseImagesSection: View {
     @StateObject var viewModel = ExerciseDetailsViewModel()
     var body: some View {
-        if ((viewModel.exerciseItemViewModel?.images).unwrapped).isEmpty {
+        if viewModel.shouldDisplayImagesSection {
                 SectionTitle(title: viewModel.exerciseImagesTitle)
             EmptySectionText(title: viewModel.emptyImagesTitle)
         } else {
             VStack(alignment: .leading, spacing: 8) {
                 SectionTitle(title: viewModel.exerciseImagesTitle)
                 HStack {
-                    ForEach((viewModel.exerciseItemViewModel?.images).unwrapped, id: \.self) { url in
+                    ForEach(viewModel.exerciseImages, id: \.self) { url in
                         AsyncImage(url: URL(string: (url.image).unwrapped), content: { image in
                             image
                                 .resizable()
@@ -70,7 +70,7 @@ struct ExerciseVariationsSection: View {
     var coordinator: ExerciseDetailsCoordinator?
     @StateObject var viewModel = ExerciseDetailsViewModel()
     var body: some View {
-        if !(viewModel.exerciseItemViewModel?.variations).unwrapped.isEmpty {
+        if viewModel.shouldDisplayVariationsSection {
             VStack(alignment: .leading, spacing: 16) {
                 SectionTitle(title: viewModel.variationsTitle)
                 ForEach(viewModel.excerciseItemsList, id: \.self) { viewModel in

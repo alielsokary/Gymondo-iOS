@@ -7,8 +7,9 @@
 
 import Foundation
 
- @MainActor public class ExerciseDetailsViewModel: ObservableObject {
-    @Published public var exerciseName: String?
+@MainActor public class ExerciseDetailsViewModel: ObservableObject {
+
+    @Published public var exerciseName: String = ""
     @Published public var imageUrl: URL?
 
     @Published public var variationsTitle = "Variations"
@@ -17,12 +18,19 @@ import Foundation
     @Published public var emptyVariationsTitle =  "No variations available"
 
     @Published public var excerciseItemsList = [ExerciseItemViewModel]()
+    @Published public var shouldDisplayImagesSection: Bool = false
+    @Published public var shouldDisplayVariationsSection: Bool = false
+    @Published public var exerciseImages: [ExerciseImageItem] = []
+
     public init() { }
 
     public var exerciseItemViewModel: ExerciseItemViewModel? {
         didSet {
-            exerciseName =  exerciseItemViewModel?.name
+            exerciseName =  (exerciseItemViewModel?.name).unwrapped
+            exerciseImages = (exerciseItemViewModel?.images).unwrapped
             imageUrl = URL(string: (exerciseItemViewModel?.images?.first?.image).unwrapped)
+            shouldDisplayImagesSection = !((exerciseItemViewModel?.images).unwrapped).isEmpty
+            shouldDisplayVariationsSection = !(exerciseItemViewModel?.variations).unwrapped.isEmpty
         }
     }
 
@@ -33,7 +41,8 @@ import Foundation
         guard !variations.isEmpty else { return }
 
         variations.forEach { [weak self] variation in
-            _ = self?.apiService.dispatch(ExercisesRouter.GetExerciseinfo(variation: variation)).sink { completion in
+            _ = self?.apiService.dispatch(ExercisesRouter.GetExerciseinfo(variation: variation))
+                .sink { completion in
                 switch completion {
                 case .finished: break
                 case let .failure(error):
@@ -46,14 +55,14 @@ import Foundation
                 let exerciseBase = (exerciseItem.exerciseBase).unwrapped
                 let images = (exerciseItem.images)
                 let mainImageURL = (exerciseItem.images?.first)?.image
-
-                let exerciceVM = ExerciseItemViewModel(id: exerciseID, name: exerciseName, images: images, mainImageURL: mainImageURL, variations: variations, exerciseBase: exerciseBase)
-                self?.excerciseItemsList.append(exerciceVM)
+                
+                let exerciseVM = ExerciseItemViewModel(id: exerciseID, name: exerciseName, images: images, mainImageURL: mainImageURL, variations: variations, exerciseBase: exerciseBase)
+                self?.excerciseItemsList.append(exerciseVM)
             }
         }
     }
 
-     public func resetData() {
-         excerciseItemsList = []
-     }
+    public func resetData() {
+        excerciseItemsList = []
+    }
 }
