@@ -31,7 +31,7 @@ import Foundation
         guard !variations.isEmpty else { return }
 
         variations.forEach { [weak self] variation in
-            _ = self?.apiService.dispatch(ExercisesRouter.GetExerciseinfo(path: "/exerciseinfo/\(variation)", method: .get)).sink { completion in
+            _ = self?.apiService.dispatch(ExercisesRouter.GetExerciseinfo(variation: variation)).sink { completion in
                 switch completion {
                 case .finished: break
                 case let .failure(error):
