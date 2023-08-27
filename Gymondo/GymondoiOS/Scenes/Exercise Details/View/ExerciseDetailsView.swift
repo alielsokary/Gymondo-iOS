@@ -14,12 +14,11 @@ struct ExerciseDetailsView: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
+            LazyVStack(alignment: .leading, spacing: 16) {
                 AsyncImageSectionView(urlString: viewModel.imageUrlString.unwrapped)
-                VStack(alignment: .leading, spacing: 16) {
-                    ImageListSectionView(viewModel: viewModel)
-                    ExerciseVariationsSectionView(coordinator: coordinator, viewModel: viewModel)
-                }
+                    .padding(.horizontal, 16)
+                ImageListSectionView(viewModel: viewModel)
+                ExerciseVariationsSectionView(coordinator: coordinator, viewModel: viewModel)
 
             }.navigationBarTitle(viewModel.exerciseName)
             .onAppear {

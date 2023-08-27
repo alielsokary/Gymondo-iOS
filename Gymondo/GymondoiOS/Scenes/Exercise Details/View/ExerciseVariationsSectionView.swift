@@ -13,7 +13,7 @@ struct ExerciseVariationsSectionView: View {
     @StateObject var viewModel = ExerciseDetailsViewModel()
     var body: some View {
         if viewModel.shouldDisplayVariationsSection {
-            VStack(alignment: .leading, spacing: 16) {
+            LazyVStack(alignment: .leading, spacing: 16) {
                 TitleSectionView(title: viewModel.variationsTitle)
                 ForEach(viewModel.excerciseItemsList, id: \.self) { viewModel in
                     CardView(viewModel: viewModel)
