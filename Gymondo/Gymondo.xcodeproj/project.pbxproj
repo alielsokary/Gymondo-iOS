@@ -48,6 +48,8 @@
 		41DB746F2A98AAB6009A6055 /* Exercises.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41DB746E2A98AAB6009A6055 /* Exercises.storyboard */; };
 		41F12BA02A992CCC002F8C83 /* ExerciseDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F12B9F2A992CCC002F8C83 /* ExerciseDetailsCoordinator.swift */; };
 		41F12BA42A9A1011002F8C83 /* ExerciseDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F12BA22A992DB1002F8C83 /* ExerciseDetailsViewModel.swift */; };
+		41F12BAC2A9B7D4F002F8C83 /* ViewModelSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F12BAB2A9B7D4F002F8C83 /* ViewModelSpy.swift */; };
+		41F12BAD2A9B7D90002F8C83 /* ViewModelSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F12BAB2A9B7D4F002F8C83 /* ViewModelSpy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +141,7 @@
 		41F12B9F2A992CCC002F8C83 /* ExerciseDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailsCoordinator.swift; sourceTree = "<group>"; };
 		41F12BA22A992DB1002F8C83 /* ExerciseDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailsViewModel.swift; sourceTree = "<group>"; };
 		41F12BA52A9A43F7002F8C83 /* CI_iOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = CI_iOS.xctestplan; path = ../CI_iOS.xctestplan; sourceTree = "<group>"; };
+		41F12BAB2A9B7D4F002F8C83 /* ViewModelSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelSpy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,6 +298,7 @@
 				417FBE1D2A9892CE00977B2E /* ExerciseListViewController+TestHelpers.swift */,
 				417FBE1F2A98932500977B2E /* UIRefreshControl+TestHelpers.swift */,
 				417FBE212A98935200977B2E /* ExerciseItemCell+TestHelpers.swift */,
+				41F12BAB2A9B7D4F002F8C83 /* ViewModelSpy.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -359,8 +363,8 @@
 		41D899E22A940A9200291E5F /* GymondoTests */ = {
 			isa = PBXGroup;
 			children = (
+				41F12BA72A9B7C93002F8C83 /* Exercise API */,
 				415447C32A9698B400472BF5 /* Helpers */,
-				415447BC2A95109300472BF5 /* HTTPClientTests.swift */,
 			);
 			path = GymondoTests;
 			sourceTree = "<group>";
@@ -424,6 +428,14 @@
 				41F12B9F2A992CCC002F8C83 /* ExerciseDetailsCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		41F12BA72A9B7C93002F8C83 /* Exercise API */ = {
+			isa = PBXGroup;
+			children = (
+				415447BC2A95109300472BF5 /* HTTPClientTests.swift */,
+			);
+			path = "Exercise API";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -691,6 +703,7 @@
 				417FBE1E2A9892CE00977B2E /* ExerciseListViewController+TestHelpers.swift in Sources */,
 				417FBE222A98935200977B2E /* ExerciseItemCell+TestHelpers.swift in Sources */,
 				417FBE202A98932500977B2E /* UIRefreshControl+TestHelpers.swift in Sources */,
+				41F12BAC2A9B7D4F002F8C83 /* ViewModelSpy.swift in Sources */,
 				415447F92A9782AA00472BF5 /* ExerciseListViewControllerTests.swift in Sources */,
 				415448032A97910200472BF5 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
@@ -724,6 +737,7 @@
 			files = (
 				415447C52A96993D00472BF5 /* MockEndpointRouter.swift in Sources */,
 				415447CA2A969E6A00472BF5 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
+				41F12BAD2A9B7D90002F8C83 /* ViewModelSpy.swift in Sources */,
 				415447BD2A95109300472BF5 /* HTTPClientTests.swift in Sources */,
 				415447C22A9565D900472BF5 /* HTTPClientSpy.swift in Sources */,
 			);

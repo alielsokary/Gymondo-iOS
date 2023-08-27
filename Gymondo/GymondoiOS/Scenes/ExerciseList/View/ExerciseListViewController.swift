@@ -7,6 +7,7 @@
 
 import UIKit
 import Gymondo
+import Combine
 
 public final class ExerciseListViewController: UITableViewController {
 
@@ -14,7 +15,8 @@ public final class ExerciseListViewController: UITableViewController {
 
     private var coordinator: MainCoordinator?
     private var viewModel: (any ExerciseListViewModelLogic)!
-    private var model = [ExerciseItem]()
+
+    private var cancellables = Set<AnyCancellable>()
 
     public required init?(coder: NSCoder, coordinator: MainCoordinator?, viewModel: any ExerciseListViewModelLogic) {
         self.coordinator = coordinator
@@ -33,6 +35,7 @@ public final class ExerciseListViewController: UITableViewController {
         setupUI()
         setupTableView()
         refresh()
+        setuoBinding()
     }
 }
 
@@ -40,12 +43,7 @@ public final class ExerciseListViewController: UITableViewController {
 
 private extension ExerciseListViewController {
     @objc private func refresh() {
-        refreshControl?.beginRefreshing()
-        viewModel.start { [weak self] result in
-            self?.model = (try? result.get()) ?? []
-            self?.tableView.reloadData()
-            self?.refreshControl?.endRefreshing()
-        }
+        viewModel.start()
     }
 }
 
@@ -67,6 +65,29 @@ private extension ExerciseListViewController {
                            forCellReuseIdentifier: ExerciseItemCell.identifier)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 50
+    }
+}
+
+// MARK: - Setup Binding
+
+private extension ExerciseListViewController {
+    func setuoBinding() {
+        viewModel.exercisesSubject
+            .sink { completion in
+                switch completion {
+                case .finished: break
+                case let .failure(error):
+                    print(error)
+                }
+            } receiveValue: { [weak self] _ in
+                self?.tableView.reloadData()
+            }.store(in: &cancellables)
+
+        viewModel.isLoading
+            .sink { [weak self] isLoading in
+                isLoading ? self?.refreshControl?.beginRefreshing() : self?.refreshControl?.endRefreshing()
+            }
+            .store(in: &cancellables)
     }
 }
 
