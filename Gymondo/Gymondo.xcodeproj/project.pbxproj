@@ -206,7 +206,6 @@
 			isa = PBXGroup;
 			children = (
 				412D9A052A98C2B0008FE272 /* Coordinator.swift */,
-				412D9A0B2A98C306008FE272 /* MainCoordinator.swift */,
 				412D9A0F2A98C3CD008FE272 /* Storyboard+Helper.swift */,
 			);
 			path = Coordinator;
@@ -274,7 +273,6 @@
 			children = (
 				412D9A042A98C2A3008FE272 /* Coordinator */,
 				41DB746A2A98AA13009A6055 /* Scenes */,
-				41CD32C42A992212003BFCC8 /* Resources */,
 				412D9A112A98DB16008FE272 /* Extensions */,
 			);
 			path = GymondoiOS;
@@ -289,14 +287,14 @@
 			path = GymondoiOSTests;
 			sourceTree = "<group>";
 		};
-		415447FA2A978CFF00472BF5 /* ViewModel */ = {
+		415447FA2A978CFF00472BF5 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				415447FB2A978D1600472BF5 /* ExerciseListViewModel.swift */,
 				41CD32C22A99113C003BFCC8 /* ExerciseItemViewModel.swift */,
 				41F12BA22A992DB1002F8C83 /* ExerciseDetailsViewModel.swift */,
 			);
-			path = ViewModel;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		415447FD2A978F6F00472BF5 /* Frameworks */ = {
@@ -304,6 +302,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		415FCC242A9BB8EE0093363D /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				412D9A0B2A98C306008FE272 /* MainCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		417FBE1C2A9892BA00977B2E /* Helpers */ = {
@@ -315,13 +321,6 @@
 				41F12BAB2A9B7D4F002F8C83 /* ViewModelSpy.swift */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		41CD32C42A992212003BFCC8 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		41CD32C92A992990003BFCC8 /* Exercise Details */ = {
@@ -365,11 +364,11 @@
 		41D899D82A940A9200291E5F /* Gymondo */ = {
 			isa = PBXGroup;
 			children = (
-				415447FA2A978CFF00472BF5 /* ViewModel */,
-				415447C62A969E1300472BF5 /* Extensions */,
+				41D899F02A940B0000291E5F /* Models */,
+				415447FA2A978CFF00472BF5 /* ViewModels */,
 				415447BE2A955FAB00472BF5 /* ExerciseService */,
 				415447AF2A94F0F400472BF5 /* Networking */,
-				41D899F02A940B0000291E5F /* Models */,
+				415447C62A969E1300472BF5 /* Extensions */,
 			);
 			path = Gymondo;
 			sourceTree = "<group>";
@@ -405,6 +404,7 @@
 		41DB746B2A98AA1A009A6055 /* ExerciseList */ = {
 			isa = PBXGroup;
 			children = (
+				415FCC242A9BB8EE0093363D /* Coordinator */,
 				41DB746C2A98AA30009A6055 /* View */,
 			);
 			path = ExerciseList;
