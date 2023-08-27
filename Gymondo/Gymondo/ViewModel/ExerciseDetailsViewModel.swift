@@ -10,7 +10,7 @@ import Foundation
 @MainActor public class ExerciseDetailsViewModel: ObservableObject {
 
     @Published public var exerciseName: String = ""
-    @Published public var imageUrl: URL?
+    @Published public var imageUrlString: String?
 
     @Published public var variationsTitle = "Variations"
     @Published public var exerciseImagesTitle = "Exercise Images"
@@ -28,8 +28,8 @@ import Foundation
         didSet {
             exerciseName =  (exerciseItemViewModel?.name).unwrapped
             exerciseImages = (exerciseItemViewModel?.images).unwrapped
-            imageUrl = URL(string: (exerciseItemViewModel?.images?.first?.image).unwrapped)
-            shouldDisplayImagesSection = !((exerciseItemViewModel?.images).unwrapped).isEmpty
+            imageUrlString = (exerciseItemViewModel?.images?.first?.image).unwrapped
+            shouldDisplayImagesSection = ((exerciseItemViewModel?.images).unwrapped).isEmpty
             shouldDisplayVariationsSection = !(exerciseItemViewModel?.variations).unwrapped.isEmpty
         }
     }
@@ -55,7 +55,7 @@ import Foundation
                 let exerciseBase = (exerciseItem.exerciseBase).unwrapped
                 let images = (exerciseItem.images)
                 let mainImageURL = (exerciseItem.images?.first)?.image
-                
+
                 let exerciseVM = ExerciseItemViewModel(id: exerciseID, name: exerciseName, images: images, mainImageURL: mainImageURL, variations: variations, exerciseBase: exerciseBase)
                 self?.excerciseItemsList.append(exerciseVM)
             }
