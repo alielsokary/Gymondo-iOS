@@ -127,7 +127,6 @@ class APIClientTests: XCTestCase {
                              exerciseBase: 3,
                              description: "desc",
                              created: "date",
-                             category: 2,
                              language: 2,
                              variations: [1, 2, 3])
 
@@ -137,7 +136,6 @@ class APIClientTests: XCTestCase {
                              exerciseBase: 3,
                              description: "desc",
                              created: "date",
-                             category: 2,
                              language: 2,
                              variations: [1, 2, 3])
 
@@ -186,8 +184,8 @@ class APIClientTests: XCTestCase {
         return (sut, request)
     }
 
-    private func makeItem(id: Int?, uuid: String?, name: String?, exerciseBase: Int?, description: String?, created: String?, category: Int?, language: Int?, variations: [Int]?) -> (model: ExerciseItem, json: [String: Any]) {
-        let item = ExerciseItem(id: id, uuid: uuid, name: name, exerciseBase: exerciseBase, description: description, created: created, category: category, language: language, variations: variations)
+    private func makeItem(id: Int?, uuid: String?, name: String?, exerciseBase: Int?, description: String?, created: String?, language: Int?, variations: [Int]?) -> (model: ExerciseItem, json: [String: Any]) {
+        let item = ExerciseItem(id: id, uuid: uuid, name: name, exerciseBase: exerciseBase, description: description, images: nil, created: created, variations: variations)
         let json: [String: Any] = [
                     "id": id!,
                     "uuid": uuid!,
@@ -195,7 +193,6 @@ class APIClientTests: XCTestCase {
                     "exerciseBase": exerciseBase!,
                     "description": description!,
                     "created": created!,
-                    "category": category!,
                     "language": language!,
                     "variations": variations!
         ] as [String: Any]

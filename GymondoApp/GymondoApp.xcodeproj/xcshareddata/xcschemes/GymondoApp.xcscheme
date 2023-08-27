@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "41D899D52A940A9200291E5F"
-               BuildableName = "Gymondo.framework"
-               BlueprintName = "Gymondo"
-               ReferencedContainer = "container:Gymondo.xcodeproj">
+               BlueprintIdentifier = "4189D8522A98A41400EE1180"
+               BuildableName = "GymondoApp.app"
+               BlueprintName = "GymondoApp"
+               ReferencedContainer = "container:GymondoApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,10 +29,23 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:../CI_iOS.xctestplan"
+            reference = "container:../GymondoApp.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
+      <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4189D8682A98A41500EE1180"
+               BuildableName = "GymondoAppTests.xctest"
+               BlueprintName = "GymondoAppTests"
+               ReferencedContainer = "container:GymondoApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -44,6 +57,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "4189D8522A98A41400EE1180"
+            BuildableName = "GymondoApp.app"
+            BlueprintName = "GymondoApp"
+            ReferencedContainer = "container:GymondoApp.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -51,15 +74,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "41D899D52A940A9200291E5F"
-            BuildableName = "Gymondo.framework"
-            BlueprintName = "Gymondo"
-            ReferencedContainer = "container:Gymondo.xcodeproj">
+            BlueprintIdentifier = "4189D8522A98A41400EE1180"
+            BuildableName = "GymondoApp.app"
+            BlueprintName = "GymondoApp"
+            ReferencedContainer = "container:GymondoApp.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

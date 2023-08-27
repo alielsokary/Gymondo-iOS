@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExerciseItemCell" rowHeight="104" id="KGk-i7-Jjw" customClass="ExerciseItemCell" customModule="GymondoiOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="322" height="104"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="322" height="104"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k8C-8k-074">
+                        <rect key="frame" x="8" y="8" width="306" height="88"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="V54-os-s5n">
+                        <rect key="frame" x="16" y="25" width="306" height="54"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vyo-Px-n1c">
+                                <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="54" id="Dhd-SN-FES"/>
+                                    <constraint firstAttribute="height" constant="54" id="jN8-6d-BbA"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aI-kb-DjG">
+                                <rect key="frame" x="62" y="17.333333333333336" width="244" height="19.333333333333336"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="k8C-8k-074" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="74f-sF-Qur"/>
+                    <constraint firstItem="V54-os-s5n" firstAttribute="trailing" secondItem="k8C-8k-074" secondAttribute="trailing" constant="8" id="8a7-oN-DPB"/>
+                    <constraint firstAttribute="bottom" secondItem="k8C-8k-074" secondAttribute="bottom" constant="8" id="LX9-qs-99f"/>
+                    <constraint firstItem="V54-os-s5n" firstAttribute="leading" secondItem="k8C-8k-074" secondAttribute="leading" constant="8" id="R2X-OR-aFo"/>
+                    <constraint firstItem="V54-os-s5n" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="UCS-jd-rr9"/>
+                    <constraint firstItem="k8C-8k-074" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="UzS-uQ-22a"/>
+                    <constraint firstAttribute="trailing" secondItem="k8C-8k-074" secondAttribute="trailing" constant="8" id="h9L-vI-vDV"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="exerciseImageView" destination="Vyo-Px-n1c" id="iqN-T6-sBQ"/>
+                <outlet property="exerciseNameLabel" destination="5aI-kb-DjG" id="7PA-A0-E61"/>
+            </connections>
+            <point key="canvasLocation" x="64.122137404580144" y="40.845070422535215"/>
+        </tableViewCell>
+    </objects>
+</document>

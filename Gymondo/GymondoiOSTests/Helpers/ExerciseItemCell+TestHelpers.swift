@@ -11,6 +11,6 @@ import UIKit
 extension ExerciseItemCell {
 
     var nameText: String? {
-        return nameLabel.text
+        return exerciseNameLabel.text
     }
 }

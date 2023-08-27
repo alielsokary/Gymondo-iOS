@@ -1,10 +1,6 @@
 line_length:
-  warning: 300
-  error: 350
+  warning: 250
+  error: 300
   ignores_function_declarations: true
   ignores_comments: true
   ignores_urls: true
-
-disabled_rules:
-    - nesting
-    - identifier_name

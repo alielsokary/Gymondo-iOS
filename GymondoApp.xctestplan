@@ -1,0 +1,43 @@
+{
+  "configurations" : [
+    {
+      "id" : "391219D4-1AC0-4C5C-9CF0-6E67886DBABE",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:GymondoApp.xcodeproj",
+      "identifier" : "4189D8522A98A41400EE1180",
+      "name" : "GymondoApp"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:GymondoApp.xcodeproj",
+        "identifier" : "4189D8682A98A41500EE1180",
+        "name" : "GymondoAppTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/Gymondo\/Gymondo.xcodeproj",
+        "identifier" : "41D899DD2A940A9200291E5F",
+        "name" : "GymondoTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/Gymondo\/Gymondo.xcodeproj",
+        "identifier" : "415447E72A97813900472BF5",
+        "name" : "GymondoiOSTests"
+      }
+    }
+  ],
+  "version" : 1
+}
