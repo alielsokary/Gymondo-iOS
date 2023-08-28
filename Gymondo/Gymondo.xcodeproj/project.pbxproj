@@ -11,6 +11,7 @@
 		412D9A0C2A98C306008FE272 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412D9A0B2A98C306008FE272 /* MainCoordinator.swift */; };
 		412D9A102A98C3CD008FE272 /* Storyboard+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412D9A0F2A98C3CD008FE272 /* Storyboard+Helper.swift */; };
 		412D9A132A98DB36008FE272 /* UIview+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412D9A122A98DB36008FE272 /* UIview+Extension.swift */; };
+		4135AF2C2A9CE7F600E4AA24 /* ExerciseListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4135AF2B2A9CE7F600E4AA24 /* ExerciseListViewModelTests.swift */; };
 		4135AF2E2A9CF52000E4AA24 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4135AF2D2A9CF52000E4AA24 /* SharedTestHelpers.swift */; };
 		4135AF2F2A9CF55D00E4AA24 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4135AF2D2A9CF52000E4AA24 /* SharedTestHelpers.swift */; };
 		415447B12A94F12100472BF5 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415447B02A94F12100472BF5 /* APIConstants.swift */; };
@@ -110,6 +111,7 @@
 		412D9A0B2A98C306008FE272 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		412D9A0F2A98C3CD008FE272 /* Storyboard+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+Helper.swift"; sourceTree = "<group>"; };
 		412D9A122A98DB36008FE272 /* UIview+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIview+Extension.swift"; sourceTree = "<group>"; };
+		4135AF2B2A9CE7F600E4AA24 /* ExerciseListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListViewModelTests.swift; sourceTree = "<group>"; };
 		4135AF2D2A9CF52000E4AA24 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 		415447AE2A94EF0900472BF5 /* CI_macOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CI_macOS.xctestplan; sourceTree = "<group>"; };
 		415447B02A94F12100472BF5 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 		415FCC272A9BBD0A0093363D /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				4135AF2B2A9CE7F600E4AA24 /* ExerciseListViewModelTests.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -775,6 +778,7 @@
 				415447C52A96993D00472BF5 /* MockEndpointRouter.swift in Sources */,
 				415447CA2A969E6A00472BF5 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 				4135AF2E2A9CF52000E4AA24 /* SharedTestHelpers.swift in Sources */,
+				4135AF2C2A9CE7F600E4AA24 /* ExerciseListViewModelTests.swift in Sources */,
 				41F12BAD2A9B7D90002F8C83 /* ViewModelSpy.swift in Sources */,
 				415447BD2A95109300472BF5 /* HTTPClientTests.swift in Sources */,
 				415447C22A9565D900472BF5 /* HTTPClientSpy.swift in Sources */,
