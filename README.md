@@ -17,7 +17,7 @@ open GymondoApp.xcworkspace
 ## Structure
 ```
 .
-├── Gymondo #	macOS Target Contains Platform Agnostic Logic
+├── Gymondo #	macOS Framework Target Contains Platform Agnostic Logic
 │   │	├── Models # App Entity
 │   │	├── ViewModels  
 │   │	├── Exercise Service
@@ -28,7 +28,7 @@ open GymondoApp.xcworkspace
 │   │	├── Exercise API   
 │   │	├── Helpers
 ├── GymondoAPIEndToEndTests
-├── GymondoiOS
+├── GymondoiOS iOS Framework Target Contains iOS Specific Logic
 │   │	├── Coordinator 
 │   │	├── Scenes 
 │   │	│   ├── Exercise List 
