@@ -21,7 +21,7 @@ class ExerciseDetailsCoordinator: Coordinator {
         self.exerciseItemViewModel = exerciseItemViewModel
     }
 
-    @MainActor func start() {
+    func start() {
         let apiService: ExerciseService = ExerciseServiceImpl()
         let viewmodel = ExerciseDetailsViewModel(apiService: apiService, exerciseItemViewModel: exerciseItemViewModel)
 
@@ -30,7 +30,7 @@ class ExerciseDetailsCoordinator: Coordinator {
         navigationController.pushViewController(newView, animated: true)
     }
 
-    @MainActor func navigateToExerciseVariationDetails(with data: ExerciseItemViewModel) {
+    func navigateToExerciseVariationDetails(with data: ExerciseItemViewModel) {
         let cordinator = ExerciseDetailsCoordinator(navigationController: navigationController, exerciseItemViewModel: data)
         childCoordinators.append(cordinator)
         cordinator.start()

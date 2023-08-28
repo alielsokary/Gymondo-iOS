@@ -68,10 +68,6 @@ final class ExerciseListViewControllerTests: XCTestCase {
         XCTAssertEqual(view?.nameText, item0.name)
     }
 
-    func makeItem(id: Int?, uuid: String?, name: String?, exerciseBase: Int?) -> ExerciseItem {
-        return ExerciseItem(id: id, uuid: uuid, name: name, exerciseBase: exerciseBase, description: nil, images: nil, created: nil, variations: nil)
-    }
-
     // MARK: - Helpers
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: ExerciseListViewController, viewModel: ViewModelSpy) {
         let viewModel = ViewModelSpy()
