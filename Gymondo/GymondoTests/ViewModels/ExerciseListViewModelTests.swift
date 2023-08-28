@@ -16,8 +16,8 @@ final class ExerciseListViewModelTests: XCTestCase {
     func test_exercisesSubject_returnsExerciseItemsOnSuccess() {
         let (sut, service) = makeSUT()
 
-        let item0 = makeItem(id: 1, uuid: "uuid1", name: "item0", exerciseBase: 1)
-        let item1 = makeItem(id: 2, uuid: "uuid2", name: "item1", exerciseBase: 1)
+        let item0 = makeItem(id: 1, uuid: "uuid1", name: "item0", exerciseBase: 1, variations: nil)
+        let item1 = makeItem(id: 2, uuid: "uuid2", name: "item1", exerciseBase: 1, variations: nil)
 
         let mockedExerciseItems = [
             item0, item1

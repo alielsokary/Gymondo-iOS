@@ -8,6 +8,6 @@
 import Foundation
 import Gymondo
 
-func makeItem(id: Int?, uuid: String?, name: String?, exerciseBase: Int?) -> ExerciseItem {
-    return ExerciseItem(id: id, uuid: uuid, name: name, exerciseBase: exerciseBase, description: nil, images: nil, created: nil, variations: nil)
+func makeItem(id: Int?, uuid: String?, name: String?, exerciseBase: Int?, variations: [Int]?) -> ExerciseItem {
+    return ExerciseItem(id: id, uuid: uuid, name: name, exerciseBase: exerciseBase, description: nil, images: nil, created: nil, variations: variations)
 }
