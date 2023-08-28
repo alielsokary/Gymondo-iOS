@@ -30,7 +30,7 @@ protocol ExerciseDetailsViewModelLogic {
 
 public class ExerciseDetailsViewModel: ObservableObject, ExerciseDetailsViewModelLogic {
 
-    var exerciseItemViewModel: ExerciseItemViewModel
+    let exerciseItemViewModel: ExerciseItemViewModel
 
     @Published public var exerciseName: String = ""
     @Published public var imageUrlString: String?

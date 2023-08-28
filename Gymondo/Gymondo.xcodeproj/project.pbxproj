@@ -46,7 +46,6 @@
 		417FBE222A98935200977B2E /* ExerciseItemCell+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417FBE212A98935200977B2E /* ExerciseItemCell+TestHelpers.swift */; };
 		41CD32B92A98F442003BFCC8 /* ExerciseImageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD32B82A98F442003BFCC8 /* ExerciseImageItem.swift */; };
 		41CD32BB2A98F5AC003BFCC8 /* APIParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD32BA2A98F5AC003BFCC8 /* APIParameters.swift */; };
-		41CD32BD2A98F641003BFCC8 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD32BC2A98F641003BFCC8 /* Encodable+Extension.swift */; };
 		41CD32C02A990623003BFCC8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 41CD32BF2A990623003BFCC8 /* Kingfisher */; };
 		41CD32C32A99113C003BFCC8 /* ExerciseItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD32C22A99113C003BFCC8 /* ExerciseItemViewModel.swift */; };
 		41CD32CB2A992A29003BFCC8 /* ExerciseDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD32CA2A992A29003BFCC8 /* ExerciseDetailsView.swift */; };
@@ -145,7 +144,6 @@
 		417FBE212A98935200977B2E /* ExerciseItemCell+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseItemCell+TestHelpers.swift"; sourceTree = "<group>"; };
 		41CD32B82A98F442003BFCC8 /* ExerciseImageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseImageItem.swift; sourceTree = "<group>"; };
 		41CD32BA2A98F5AC003BFCC8 /* APIParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIParameters.swift; sourceTree = "<group>"; };
-		41CD32BC2A98F641003BFCC8 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
 		41CD32C22A99113C003BFCC8 /* ExerciseItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseItemViewModel.swift; sourceTree = "<group>"; };
 		41CD32CA2A992A29003BFCC8 /* ExerciseDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailsView.swift; sourceTree = "<group>"; };
 		41D899D62A940A9200291E5F /* Gymondo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gymondo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -229,7 +227,6 @@
 				415447B62A94F2D800472BF5 /* APIClient.swift */,
 				415447D92A96AF6300472BF5 /* ExercisesRouter.swift */,
 				41CD32BA2A98F5AC003BFCC8 /* APIParameters.swift */,
-				41CD32BC2A98F641003BFCC8 /* Encodable+Extension.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -291,8 +288,8 @@
 			isa = PBXGroup;
 			children = (
 				415447FB2A978D1600472BF5 /* ExerciseListViewModel.swift */,
-				41CD32C22A99113C003BFCC8 /* ExerciseItemViewModel.swift */,
 				41F12BA22A992DB1002F8C83 /* ExerciseDetailsViewModel.swift */,
+				41CD32C22A99113C003BFCC8 /* ExerciseItemViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -310,6 +307,13 @@
 				412D9A0B2A98C306008FE272 /* MainCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		415FCC272A9BBD0A0093363D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		417FBE1C2A9892BA00977B2E /* Helpers */ = {
@@ -376,6 +380,7 @@
 		41D899E22A940A9200291E5F /* GymondoTests */ = {
 			isa = PBXGroup;
 			children = (
+				415FCC272A9BBD0A0093363D /* ViewModels */,
 				41F12BA72A9B7C93002F8C83 /* Exercise API */,
 				415447C32A9698B400472BF5 /* Helpers */,
 			);
@@ -746,7 +751,6 @@
 				41F12BA42A9A1011002F8C83 /* ExerciseDetailsViewModel.swift in Sources */,
 				415447B52A94F22400472BF5 /* HTTPMethod.swift in Sources */,
 				415447C82A969E2A00472BF5 /* Optional+Extension.swift in Sources */,
-				41CD32BD2A98F641003BFCC8 /* Encodable+Extension.swift in Sources */,
 				415447B12A94F12100472BF5 /* APIConstants.swift in Sources */,
 				415447B92A9508FD00472BF5 /* HTTPClient.swift in Sources */,
 				415447C02A955FD800472BF5 /* ExerciseService.swift in Sources */,
