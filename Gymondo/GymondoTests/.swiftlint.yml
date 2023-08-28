@@ -1,4 +1,7 @@
 disabled_rules:
+    - nesting
     - function_parameter_count
     - line_length
     - force_try
+    - identifier_name
+    - force_cast

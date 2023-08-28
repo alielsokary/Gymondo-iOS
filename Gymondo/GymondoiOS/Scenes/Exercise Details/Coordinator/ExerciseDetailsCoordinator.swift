@@ -21,17 +21,16 @@ class ExerciseDetailsCoordinator: Coordinator {
         self.exerciseItemViewModel = exerciseItemViewModel
     }
 
-    @MainActor func start() {
-        let viewmodel = ExerciseDetailsViewModel()
-        viewmodel.exerciseItemViewModel = exerciseItemViewModel
+    func start() {
+        let apiService: ExerciseService = ExerciseServiceImpl()
+        let viewmodel = ExerciseDetailsViewModel(apiService: apiService, exerciseItemViewModel: exerciseItemViewModel)
 
-        var exerciseDetailsView = ExerciseDetailsView(viewModel: viewmodel)
-        exerciseDetailsView.coordinator = self
+        let exerciseDetailsView = ExerciseDetailsView(coordinator: self, viewModel: viewmodel)
         let newView = UIHostingController(rootView: exerciseDetailsView)
         navigationController.pushViewController(newView, animated: true)
     }
 
-    @MainActor func navigateToExerciseVariationDetails(with data: ExerciseItemViewModel) {
+    func navigateToExerciseVariationDetails(with data: ExerciseItemViewModel) {
         let cordinator = ExerciseDetailsCoordinator(navigationController: navigationController, exerciseItemViewModel: data)
         childCoordinators.append(cordinator)
         cordinator.start()

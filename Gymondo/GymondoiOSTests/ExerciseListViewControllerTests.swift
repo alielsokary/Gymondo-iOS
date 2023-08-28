@@ -55,7 +55,7 @@ final class ExerciseListViewControllerTests: XCTestCase {
     }
 
     func test_startCompletion_rendersSuccessfullyLoadedExercises() {
-        let item0 = makeItem(id: 1, uuid: "", name: "Item", exerciseBase: 1)
+        let item0 = makeItem(id: 1, uuid: "", name: "Item", exerciseBase: 1, variations: nil)
         let (sut, viewModel) = makeSUT()
 
         sut.loadViewIfNeeded()
@@ -66,10 +66,6 @@ final class ExerciseListViewControllerTests: XCTestCase {
         let view = sut.exerciseItemView(at: 0) as? ExerciseItemCell
         XCTAssertNotNil(view)
         XCTAssertEqual(view?.nameText, item0.name)
-    }
-
-    func makeItem(id: Int?, uuid: String?, name: String?, exerciseBase: Int?) -> ExerciseItem {
-        return ExerciseItem(id: id, uuid: uuid, name: name, exerciseBase: exerciseBase, description: nil, images: nil, created: nil, variations: nil)
     }
 
     // MARK: - Helpers
