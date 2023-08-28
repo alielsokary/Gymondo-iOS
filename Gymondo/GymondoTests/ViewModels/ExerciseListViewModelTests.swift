@@ -88,28 +88,13 @@ final class ExerciseListViewModelTests: XCTestCase {
         wait(for: [exp], timeout: 5.0)
     }
 
+    // MARK: - Helpers
+
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: ExerciseListViewModel, service: MockExerciseService) {
         let apiService = MockExerciseService()
         let sut = ExerciseListViewModel(apiService: apiService)
         trackForMemoryLeaks(apiService, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, apiService)
-    }
-
-    // MARK: - Helpers
-
-    class MockExerciseService: ExerciseService {
-        var mockedResponse: AnyPublisher<Exercises, NetworkRequestError>?
-
-        func dispatch<R: EndpointRouter>(_ request: R) -> AnyPublisher<R.ReturnType, NetworkRequestError> {
-            if let mockedResponse = mockedResponse {
-                return mockedResponse
-                    .mapError { $0 as NetworkRequestError }
-                    .map { $0 as! R.ReturnType }
-                    .eraseToAnyPublisher()
-            } else {
-                fatalError("Mocked response is not properly configured.")
-            }
-        }
     }
 }
