@@ -55,7 +55,7 @@ final class ExerciseListViewControllerTests: XCTestCase {
     }
 
     func test_startCompletion_rendersSuccessfullyLoadedExercises() {
-        let item0 = makeItem(id: 1, uuid: "", name: "Item", exerciseBase: 1)
+        let item0 = makeItem(id: 1, uuid: "", name: "Item", exerciseBase: 1, variations: nil)
         let (sut, viewModel) = makeSUT()
 
         sut.loadViewIfNeeded()
