@@ -13,7 +13,7 @@ final class ExerciseListViewModelTests: XCTestCase {
 
     private var cancellables: Set<AnyCancellable> = []
 
-    func test_start_returnsExerciseItemsOnSuccess() {
+    func test_exercisesSubject_returnsExerciseItemsOnSuccess() {
         let (sut, service) = makeSUT()
 
         let item0 = makeItem(id: 1, uuid: "uuid1", name: "item0", exerciseBase: 1)
@@ -57,6 +57,37 @@ final class ExerciseListViewModelTests: XCTestCase {
         wait(for: [exp], timeout: 5.0)
     }
 
+    func test_exercisesSubject_returnsErrorOnFailure() {
+        let (sut, service) = makeSUT()
+
+        let error = NetworkRequestError.serverError
+
+        let mockedResponse = Result<Exercises, NetworkRequestError>.failure(error)
+                .publisher
+                .eraseToAnyPublisher()
+
+        service.mockedResponse = mockedResponse
+
+        let subject = sut.exercisesSubject
+        let exp = expectation(description: "Received exercisesSubject value")
+
+        subject.sink { completion in
+            switch completion {
+            case .finished:
+                break
+            case let .failure(receivedError):
+                exp.fulfill()
+                XCTAssertEqual(receivedError as! NetworkRequestError, error)
+            }
+
+        } receiveValue: { _ in }
+        .store(in: &cancellables)
+
+        sut.start()
+
+        wait(for: [exp], timeout: 5.0)
+    }
+
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: ExerciseListViewModel, service: MockExerciseService) {
         let apiService = MockExerciseService()
         let sut = ExerciseListViewModel(apiService: apiService)
@@ -72,8 +103,10 @@ final class ExerciseListViewModelTests: XCTestCase {
 
         func dispatch<R: EndpointRouter>(_ request: R) -> AnyPublisher<R.ReturnType, NetworkRequestError> {
             if let mockedResponse = mockedResponse {
-                return mockedResponse.map { $0 as! R.ReturnType }
-                                   .eraseToAnyPublisher()
+                return mockedResponse
+                    .mapError { $0 as NetworkRequestError }
+                    .map { $0 as! R.ReturnType }
+                    .eraseToAnyPublisher()
             } else {
                 fatalError("Mocked response is not properly configured.")
             }
