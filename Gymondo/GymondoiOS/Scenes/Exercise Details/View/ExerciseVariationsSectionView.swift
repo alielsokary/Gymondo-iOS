@@ -22,12 +22,10 @@ struct ExerciseVariationsSectionView: View {
             LazyVStack(alignment: .leading, spacing: 16) {
                 TitleSectionView(title: viewModel.variationsTitle)
                 ForEach(viewModel.excerciseItemsList, id: \.self) { viewModel in
-                    CardView(viewModel: viewModel)
-                        .onTapGesture {
-                            coordinator?.navigateToExerciseVariationDetails(with: viewModel)
-                        }   .frame(width: UIScreen.main.bounds.width, height: 50)
-                        .background(Color.gray.opacity(0.1))
-                        .cornerRadius(10)
+                    Button(viewModel.name) {
+                        coordinator?.navigateToExerciseVariationDetails(with: viewModel)
+                    }.font(.system(size: 16, weight: .bold, design: .default))
+                        .padding(.horizontal, 16)
                 }
             }
         } else {

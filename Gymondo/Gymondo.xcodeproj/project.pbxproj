@@ -43,7 +43,6 @@
 		415FCC1D2A9BAF8C0093363D /* ImageListSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415FCC1C2A9BAF8C0093363D /* ImageListSectionView.swift */; };
 		415FCC1F2A9BAFCC0093363D /* ExerciseVariationItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415FCC1E2A9BAFCC0093363D /* ExerciseVariationItemView.swift */; };
 		415FCC212A9BAFF00093363D /* ExerciseVariationsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415FCC202A9BAFF00093363D /* ExerciseVariationsSectionView.swift */; };
-		415FCC232A9BB03E0093363D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415FCC222A9BB03E0093363D /* CardView.swift */; };
 		417FBE1E2A9892CE00977B2E /* ExerciseListViewController+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417FBE1D2A9892CE00977B2E /* ExerciseListViewController+TestHelpers.swift */; };
 		417FBE202A98932500977B2E /* UIRefreshControl+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417FBE1F2A98932500977B2E /* UIRefreshControl+TestHelpers.swift */; };
 		417FBE222A98935200977B2E /* ExerciseItemCell+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417FBE212A98935200977B2E /* ExerciseItemCell+TestHelpers.swift */; };
@@ -145,7 +144,6 @@
 		415FCC1C2A9BAF8C0093363D /* ImageListSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListSectionView.swift; sourceTree = "<group>"; };
 		415FCC1E2A9BAFCC0093363D /* ExerciseVariationItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseVariationItemView.swift; sourceTree = "<group>"; };
 		415FCC202A9BAFF00093363D /* ExerciseVariationsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseVariationsSectionView.swift; sourceTree = "<group>"; };
-		415FCC222A9BB03E0093363D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		417FBE1D2A9892CE00977B2E /* ExerciseListViewController+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseListViewController+TestHelpers.swift"; sourceTree = "<group>"; };
 		417FBE1F2A98932500977B2E /* UIRefreshControl+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+TestHelpers.swift"; sourceTree = "<group>"; };
 		417FBE212A98935200977B2E /* ExerciseItemCell+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseItemCell+TestHelpers.swift"; sourceTree = "<group>"; };
@@ -456,7 +454,6 @@
 				415FCC1C2A9BAF8C0093363D /* ImageListSectionView.swift */,
 				415FCC1E2A9BAFCC0093363D /* ExerciseVariationItemView.swift */,
 				415FCC202A9BAFF00093363D /* ExerciseVariationsSectionView.swift */,
-				415FCC222A9BB03E0093363D /* CardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -728,7 +725,6 @@
 				415448082A9887D500472BF5 /* ExerciseItemCell.swift in Sources */,
 				412D9A0C2A98C306008FE272 /* MainCoordinator.swift in Sources */,
 				41F12BA02A992CCC002F8C83 /* ExerciseDetailsCoordinator.swift in Sources */,
-				415FCC232A9BB03E0093363D /* CardView.swift in Sources */,
 				415FCC1F2A9BAFCC0093363D /* ExerciseVariationItemView.swift in Sources */,
 				412D9A102A98C3CD008FE272 /* Storyboard+Helper.swift in Sources */,
 				415FCC192A9BAEDE0093363D /* AsyncImageSectionView.swift in Sources */,
