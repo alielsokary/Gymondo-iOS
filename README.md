@@ -1,5 +1,6 @@
 # Gymondo-iOS
-![gymondo1](https://github.com/alielsokary/Gymondo-iOS/assets/11244927/340adf61-d61a-4ccc-afbb-c87147d1cee0)
+
+![Group1](https://github.com/alielsokary/Gymondo-iOS/assets/11244927/6b4ac64e-f107-4608-b85c-e094a6c5b7c0)
 
 
 [![CI-iOS](https://github.com/alielsokary/Gymondo-iOS/actions/workflows/CI-iOS.yml/badge.svg)](https://github.com/alielsokary/Gymondo-iOS/actions/workflows/CI-iOS.yml)
