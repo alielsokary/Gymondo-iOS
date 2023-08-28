@@ -17,7 +17,11 @@ struct ExercisesRouter {
 
     struct GetExerciseinfo: EndpointRouter {
         typealias ReturnType = ExerciseItem
-        var path: String = ""
+        let variation: Int
+
+        var path: String {
+            return "/exerciseinfo/\(variation)"
+        }
         var method: HTTPMethod = .get
     }
 }
