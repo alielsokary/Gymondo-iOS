@@ -9,8 +9,13 @@ import SwiftUI
 import Gymondo
 
 struct ExerciseDetailsView: View {
-    var coordinator: ExerciseDetailsCoordinator?
-    @StateObject var viewModel = ExerciseDetailsViewModel()
+    private var coordinator: ExerciseDetailsCoordinator?
+    @ObservedObject private var viewModel: ExerciseDetailsViewModel
+
+    init(coordinator: ExerciseDetailsCoordinator?, viewModel: ExerciseDetailsViewModel) {
+        self.coordinator = coordinator
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         ScrollView {

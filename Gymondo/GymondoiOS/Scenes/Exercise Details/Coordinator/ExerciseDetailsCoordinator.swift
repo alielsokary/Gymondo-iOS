@@ -22,11 +22,10 @@ class ExerciseDetailsCoordinator: Coordinator {
     }
 
     @MainActor func start() {
-        let viewmodel = ExerciseDetailsViewModel()
-        viewmodel.exerciseItemViewModel = exerciseItemViewModel
+        let apiService: ExerciseService = ExerciseServiceImpl()
+        let viewmodel = ExerciseDetailsViewModel(apiService: apiService, exerciseItemViewModel: exerciseItemViewModel)
 
-        var exerciseDetailsView = ExerciseDetailsView(viewModel: viewmodel)
-        exerciseDetailsView.coordinator = self
+        let exerciseDetailsView = ExerciseDetailsView(coordinator: self, viewModel: viewmodel)
         let newView = UIHostingController(rootView: exerciseDetailsView)
         navigationController.pushViewController(newView, animated: true)
     }

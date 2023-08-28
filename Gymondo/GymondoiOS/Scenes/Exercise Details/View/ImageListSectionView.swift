@@ -9,7 +9,12 @@ import SwiftUI
 import Gymondo
 
 struct ImageListSectionView: View {
-    @StateObject var viewModel = ExerciseDetailsViewModel()
+    @ObservedObject private var viewModel: ExerciseDetailsViewModel
+
+    init(viewModel: ExerciseDetailsViewModel) {
+        self.viewModel = viewModel
+    }
+
     var body: some View {
         if viewModel.shouldDisplayImagesSection {
             TitleSectionView(title: viewModel.exerciseImagesTitle)

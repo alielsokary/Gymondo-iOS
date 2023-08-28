@@ -6,8 +6,31 @@
 //
 
 import Foundation
+import Combine
 
-@MainActor public class ExerciseDetailsViewModel: ObservableObject {
+protocol ExerciseDetailsViewModelLogic {
+    var exerciseName: String { get }
+    var imageUrlString: String? { get }
+
+    var variationsTitle: String { get }
+    var exerciseImagesTitle: String { get }
+    var emptyImagesTitle: String { get }
+    var emptyVariationsTitle: String { get }
+
+    var shouldDisplayImagesSection: Bool { get set }
+    var shouldDisplayVariationsSection: Bool { get set }
+
+    var exerciseItemViewModel: ExerciseItemViewModel { get }
+    var excerciseItemsList: [ExerciseItemViewModel] { get set }
+    var exerciseImages: [ExerciseImageItem] { get set }
+
+    func getExerciseVariations()
+    func resetData()
+}
+
+public class ExerciseDetailsViewModel: ObservableObject, ExerciseDetailsViewModelLogic {
+
+    var exerciseItemViewModel: ExerciseItemViewModel
 
     @Published public var exerciseName: String = ""
     @Published public var imageUrlString: String?
@@ -22,26 +45,27 @@ import Foundation
     @Published public var shouldDisplayVariationsSection: Bool = false
     @Published public var exerciseImages: [ExerciseImageItem] = []
 
-    public init() { }
+    private var cancellables = Set<AnyCancellable>()
 
-    public var exerciseItemViewModel: ExerciseItemViewModel? {
-        didSet {
-            exerciseName =  (exerciseItemViewModel?.name).unwrapped
-            exerciseImages = (exerciseItemViewModel?.images).unwrapped
-            imageUrlString = (exerciseItemViewModel?.images?.first?.image).unwrapped
-            shouldDisplayImagesSection = ((exerciseItemViewModel?.images).unwrapped).isEmpty
-            shouldDisplayVariationsSection = !(exerciseItemViewModel?.variations).unwrapped.isEmpty
-        }
+    private let apiService: ExerciseService!
+    public init(apiService: ExerciseService, exerciseItemViewModel: ExerciseItemViewModel) {
+        self.apiService = apiService
+        self.exerciseItemViewModel = exerciseItemViewModel
+
+        exerciseName =  exerciseItemViewModel.name
+        exerciseImages = (exerciseItemViewModel.images).unwrapped
+        imageUrlString = (exerciseItemViewModel.images?.first?.image).unwrapped
+        shouldDisplayImagesSection = ((exerciseItemViewModel.images).unwrapped).isEmpty
+        shouldDisplayVariationsSection = !(exerciseItemViewModel.variations).unwrapped.isEmpty
     }
 
-    var apiService: ExerciseService = ExerciseServiceImpl()
-
     public func getExerciseVariations() {
-        let variations = (exerciseItemViewModel?.variations).unwrapped
+        let variations = (exerciseItemViewModel.variations).unwrapped
         guard !variations.isEmpty else { return }
 
         variations.forEach { [weak self] variation in
-            _ = self?.apiService.dispatch(ExercisesRouter.GetExerciseinfo(variation: variation))
+            guard let self = self else { return }
+            self.apiService.dispatch(ExercisesRouter.GetExerciseinfo(variation: variation))
                 .sink { completion in
                 switch completion {
                 case .finished: break
@@ -58,7 +82,7 @@ import Foundation
 
                 let exerciseVM = ExerciseItemViewModel(id: exerciseID, name: exerciseName, images: images, mainImageURL: mainImageURL, variations: variations, exerciseBase: exerciseBase)
                 self?.excerciseItemsList.append(exerciseVM)
-            }
+            }.store(in: &self.cancellables)
         }
     }
 
